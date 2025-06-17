@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Todo List</title>
+</head>
+<body>
+  <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
+    Click to Reset
+  </button>
+
+  <div id="bg-picker-container">
+    <label for="bg-color-picker" class="text-light">Background:</label>
+    <input type="color" id="bg-color-picker" title="Pick background color" />
+  </div>
+
+  <div class="container">
+    <header class="text-center text-light my-4">
+      <h1 class="mb-4">Daily Living To-Do</h1> 
+      <label class="text-light">
+        Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
+      </label>
+      <label class="text-light">
+        Afterwards, select the "todo" to mark as Complete.
+      </label>
+      <label class="text-light">
+        Use This daily to Better Your Life And Routine.
+      </label>
+      <form class="add text-center my-4">
+        <input class="form-control m-auto" type="text" name="add" />
+      </form>
+    </header>
+
+    <ul class="list-group todos mx-auto text-light"></ul>
+  </div>
+
+  <script>
+    function resetLocalStorage() {
+      localStorage.clear();
+      location.reload(); // Refresh to update UI after clearing
+    }
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

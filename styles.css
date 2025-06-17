@@ -1,0 +1,59 @@
+body {
+  background: #66727a;
+  transition: background 0.3s ease;
+}
+
+.container {
+  max-width: 800px;
+}
+
+input[type="text"],
+input[type="text"]:focus {
+  color: rgb(149, 131, 131);
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+}
+
+.todos li {
+  background: #4b716c;
+}
+
+.delete {
+  cursor: pointer;
+}
+
+.filtered {
+  display: none !important;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#bg-picker-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.5);
+  padding: 6px 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 1000;
+}
+
+#bg-picker-container label {
+  font-size: 0.9rem;
+}
+
+#bg-color-picker {
+  cursor: pointer;
+  border: none;
+  width: 36px;
+  height: 28px;
+  padding: 0;
+  background: none;
+}
