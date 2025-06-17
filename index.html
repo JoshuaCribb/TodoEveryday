@@ -19,9 +19,15 @@
   <title>Todo List</title>
 
   <style>
-    /* Add margin to container to avoid overlap with sidebar ad */
+    /* Keep the container centered on wider screens */
     .container {
-      margin-right: 180px; /* slightly wider than 160px ad width for padding */
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    /* Optional: add space below last element so bottom ad doesn't touch list */
+    body {
+      padding-bottom: 120px;
     }
   </style>
 </head>
@@ -55,7 +61,7 @@
     <ul class="list-group todos mx-auto text-light"></ul>
   </div>
 
-  <!-- Sidebar skyscraper ad -->
+  <!-- Sidebar skyscraper ad (fixed) -->
   <div id="sidebar-ad" style="position: fixed; top: 100px; right: 0; width: 160px; height: 600px; background: transparent; z-index: 1000;">
     <script type="text/javascript">
       atOptions = {
@@ -78,7 +84,7 @@
 
   <script src="app.js"></script>
 
-  <!-- Bottom leaderboard ad (not fixed) -->
+  <!-- Bottom leaderboard ad -->
   <div style="text-align: center; margin: 40px auto;">
     <script type="text/javascript">
       atOptions = {
