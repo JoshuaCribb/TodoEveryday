@@ -19,70 +19,46 @@
   <title>Todo List</title>
 
   <style>
-    /* Center container with room for left/right ads */
+    body {
+      padding-bottom: 140px;
+    }
+
+    /* Centered content with space for large side ads */
     .container {
       max-width: 750px;
       margin: 0 auto;
-      padding-left: 180px;
-      padding-right: 180px;
+      padding: 0 40px;
     }
 
-    body {
-      padding-bottom: 120px; /* for bottom ad spacing */
-    }
-
-    /* Optional: reduce font size for left ad */
+    /* Large fixed left ad */
     #left-ad {
       position: fixed;
       top: 100px;
       left: 0;
-      width: 160px;
-      height: auto;
-      font-size: 0.8rem;
+      width: 480px;
+      height: 600px;
       z-index: 1000;
     }
 
+    /* Large fixed right ad */
     #sidebar-ad {
       position: fixed;
       top: 100px;
       right: 0;
-      width: 160px;
+      width: 480px;
       height: 600px;
-      background: transparent;
       z-index: 1000;
+    }
+
+    /* Hide side ads on smaller screens */
+    @media (max-width: 1400px) {
+      #left-ad, #sidebar-ad {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
-  <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
-    Click to Reset
-  </button>
-
-  <div id="bg-picker-container">
-    <label for="bg-color-picker" class="text-light">Background:</label>
-    <input type="color" id="bg-color-picker" title="Pick background color" />
-  </div>
-
-  <div class="container">
-    <header class="text-center text-light my-4">
-      <h1 class="mb-4">Daily Living To-Do List</h1> 
-      <label class="text-light">
-        Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
-      </label>
-      <label class="text-light">
-        Afterwards, select the "todo" to mark as Complete.
-      </label>
-      <label class="text-light">
-        Use This daily to Better Your Life And Routine.
-      </label>
-      <form class="add text-center my-4">
-        <input class="form-control m-auto" type="text" name="add" />
-      </form>
-    </header>
-
-    <ul class="list-group todos mx-auto text-light"></ul>
-  </div>
-
   <!-- Left-side stagnant ad -->
   <div id="left-ad">
     <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
@@ -96,11 +72,34 @@
         'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
         'format' : 'iframe',
         'height' : 600,
-        'width' : 160,
+        'width' : 480,
         'params' : {}
       };
     </script>
     <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+  </div>
+
+  <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
+    Click to Reset
+  </button>
+
+  <div id="bg-picker-container">
+    <label for="bg-color-picker" class="text-light">Background:</label>
+    <input type="color" id="bg-color-picker" title="Pick background color" />
+  </div>
+
+  <div class="container">
+    <header class="text-center text-light my-4">
+      <h1 class="mb-4">Daily Living To-Do List</h1> 
+      <label class="text-light">Select below to add text, press "Enter" on your keyboard to create a new "To-Do"</label><br/>
+      <label class="text-light">Afterwards, select the "todo" to mark as Complete.</label><br/>
+      <label class="text-light">Use This daily to Better Your Life And Routine.</label>
+      <form class="add text-center my-4">
+        <input class="form-control m-auto" type="text" name="add" />
+      </form>
+    </header>
+
+    <ul class="list-group todos mx-auto text-light"></ul>
   </div>
 
   <script>
