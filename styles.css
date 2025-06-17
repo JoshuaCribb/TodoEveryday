@@ -57,13 +57,3 @@ input[type="text"]:focus {
   padding: 0;
   background: none;
 }
-
-/* Sticky floating ad container */
-#sticky-ad-container {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 300px;       /* adjust as needed */
-  z-index: 1100;      /* make sure it’s above other elements */
-  background: transparent;
-}
