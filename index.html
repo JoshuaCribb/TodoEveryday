@@ -19,6 +19,26 @@
   <title>Todo List</title>
 
   <style>
+    /* Flex container for left ad + main content side-by-side */
+    #page-wrapper {
+      display: flex;
+      align-items: center; /* vertical center */
+      justify-content: center;
+      gap: 20px; /* space between left ad and content */
+      padding: 20px;
+    }
+
+    #left-ad-container {
+      width: 160px;
+      /* no margin-top so it stays vertically centered */
+    }
+
+    /* Make container flexible so it grows/shrinks nicely */
+    .container {
+      flex-grow: 1;
+      max-width: 700px; /* adjust as needed */
+    }
+
     #right-ad-container {
       position: fixed;
       top: 50%;
@@ -33,11 +53,6 @@
       margin: 20px auto;
       text-align: center;
     }
-
-    #left-ad-container {
-      width: 160px;
-      margin: 20px 0;
-    }
   </style>
 </head>
 <body>
@@ -45,34 +60,31 @@
     Click to Reset
   </button>
 
-  <div id="left-ad-container">
-    <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-    <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
-  </div>
+  <div id="page-wrapper">
+    <div id="left-ad-container">
+      <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+      <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+    </div>
 
-  <div id="bg-picker-container">
-    <label for="bg-color-picker" class="text-light">Background:</label>
-    <input type="color" id="bg-color-picker" title="Pick background color" />
-  </div>
+    <div class="container">
+      <header class="text-center text-light my-4">
+        <h1 class="mb-4">Daily Living To-Do List</h1> 
+        <label class="text-light">
+          Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
+        </label>
+        <label class="text-light">
+          Afterwards, select the "todo" to mark as Complete.
+        </label>
+        <label class="text-light">
+          Use This daily to Better Your Life And Routine.
+        </label>
+        <form class="add text-center my-4">
+          <input class="form-control m-auto" type="text" name="add" />
+        </form>
+      </header>
 
-  <div class="container">
-    <header class="text-center text-light my-4">
-      <h1 class="mb-4">Daily Living To-Do List</h1> 
-      <label class="text-light">
-        Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
-      </label>
-      <label class="text-light">
-        Afterwards, select the "todo" to mark as Complete.
-      </label>
-      <label class="text-light">
-        Use This daily to Better Your Life And Routine.
-      </label>
-      <form class="add text-center my-4">
-        <input class="form-control m-auto" type="text" name="add" />
-      </form>
-    </header>
-
-    <ul class="list-group todos mx-auto text-light"></ul>
+      <ul class="list-group todos mx-auto text-light"></ul>
+    </div>
   </div>
 
   <script>
@@ -111,3 +123,4 @@
   </div>
 </body>
 </html>
+
