@@ -21,16 +21,18 @@
   <style>
     body {
       padding-bottom: 140px;
+      background-color: #111;
     }
 
-    /* Centered content with space for large side ads */
+    /* Centered content with side margin for ads */
     .container {
       max-width: 750px;
-      margin: 0 auto;
-      padding: 0 40px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
     }
 
-    /* Large fixed left ad */
+    /* Fixed left ad */
     #left-ad {
       position: fixed;
       top: 100px;
@@ -40,8 +42,8 @@
       z-index: 1000;
     }
 
-    /* Large fixed right ad */
-    #sidebar-ad {
+    /* Fixed right ad - stays far right */
+    #right-ad {
       position: fixed;
       top: 100px;
       right: 0;
@@ -50,23 +52,28 @@
       z-index: 1000;
     }
 
-    /* Hide side ads on smaller screens */
+    /* Hide ads on small screens */
     @media (max-width: 1400px) {
-      #left-ad, #sidebar-ad {
+      #left-ad, #right-ad {
         display: none;
       }
+    }
+
+    /* Optional: background color for ad preview clarity */
+    #left-ad, #right-ad {
+      background-color: transparent;
     }
   </style>
 </head>
 <body>
-  <!-- Left-side stagnant ad -->
+  <!-- Left Ad (Fixed to screen, stagnant) -->
   <div id="left-ad">
     <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
     <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
   </div>
 
-  <!-- Right-side skyscraper ad -->
-  <div id="sidebar-ad">
+  <!-- Right Ad (Fixed far right, original position) -->
+  <div id="right-ad">
     <script type="text/javascript">
       atOptions = {
         'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
