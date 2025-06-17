@@ -19,15 +19,37 @@
   <title>Todo List</title>
 
   <style>
-    /* Keep the container centered on wider screens */
+    /* Center container with room for left/right ads */
     .container {
       max-width: 750px;
       margin: 0 auto;
+      padding-left: 180px;
+      padding-right: 180px;
     }
 
-    /* Optional: add space below last element so bottom ad doesn't touch list */
     body {
-      padding-bottom: 120px;
+      padding-bottom: 120px; /* for bottom ad spacing */
+    }
+
+    /* Optional: reduce font size for left ad */
+    #left-ad {
+      position: fixed;
+      top: 100px;
+      left: 0;
+      width: 160px;
+      height: auto;
+      font-size: 0.8rem;
+      z-index: 1000;
+    }
+
+    #sidebar-ad {
+      position: fixed;
+      top: 100px;
+      right: 0;
+      width: 160px;
+      height: 600px;
+      background: transparent;
+      z-index: 1000;
     }
   </style>
 </head>
@@ -61,8 +83,14 @@
     <ul class="list-group todos mx-auto text-light"></ul>
   </div>
 
-  <!-- Sidebar skyscraper ad (fixed) -->
-  <div id="sidebar-ad" style="position: fixed; top: 100px; right: 0; width: 160px; height: 600px; background: transparent; z-index: 1000;">
+  <!-- Left-side stagnant ad -->
+  <div id="left-ad">
+    <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+    <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+  </div>
+
+  <!-- Right-side skyscraper ad -->
+  <div id="sidebar-ad">
     <script type="text/javascript">
       atOptions = {
         'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
