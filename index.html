@@ -19,27 +19,30 @@
   <title>Todo List</title>
 
   <style>
-    /* Left floating ad */
+    /* Container with relative positioning for absolute children */
+    #page-wrapper {
+      position: relative;
+    }
+
+    /* Left floating ad: absolute so it scrolls with page */
     .floating-ad-left {
-      position: fixed;
+      position: absolute;
       top: 100px;
       left: 0;
       z-index: 9999;
-      /* No width set, uses natural ad width */
       padding: 5px;
     }
 
-    /* Right floating ad */
+    /* Right floating ad: absolute so it scrolls with page */
     .floating-ad-right {
-      position: fixed;
+      position: absolute;
       top: 100px;
       right: 0;
       z-index: 9999;
-      /* No width set, uses natural ad width */
       padding: 5px;
     }
 
-    /* Hide ads on small screens for better UX */
+    /* Hide ads on small screens */
     @media (max-width: 768px) {
       .floating-ad-left,
       .floating-ad-right {
@@ -50,53 +53,57 @@
 </head>
 <body>
 
-  <!-- Left floating ad -->
-  <div class="floating-ad-left">
-    <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-    <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
-  </div>
+  <div id="page-wrapper">
 
-  <!-- Right floating ad -->
-  <div class="floating-ad-right">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
-        'format' : 'iframe',
-        'height' : 600,
-        'width' : 160,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
-  </div>
+    <!-- Left floating ad -->
+    <div class="floating-ad-left">
+      <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+      <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+    </div>
 
-  <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
-    Click to Reset
-  </button>
+    <!-- Right floating ad -->
+    <div class="floating-ad-right">
+      <script type="text/javascript">
+        atOptions = {
+          'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
+          'format' : 'iframe',
+          'height' : 600,
+          'width' : 160,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+    </div>
 
-  <div id="bg-picker-container">
-    <label for="bg-color-picker" class="text-light">Background:</label>
-    <input type="color" id="bg-color-picker" title="Pick background color" />
-  </div>
+    <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
+      Click to Reset
+    </button>
 
-  <div class="container">
-    <header class="text-center text-light my-4">
-      <h1 class="mb-4">Daily Living To-Do List</h1> 
-      <label class="text-light">
-        Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
-      </label>
-      <label class="text-light">
-        Afterwards, select the "todo" to mark as Complete.
-      </label>
-      <label class="text-light">
-        Use This daily to Better Your Life And Routine.
-      </label>
-      <form class="add text-center my-4">
-        <input class="form-control m-auto" type="text" name="add" />
-      </form>
-    </header>
+    <div id="bg-picker-container">
+      <label for="bg-color-picker" class="text-light">Background:</label>
+      <input type="color" id="bg-color-picker" title="Pick background color" />
+    </div>
 
-    <ul class="list-group todos mx-auto text-light"></ul>
+    <div class="container">
+      <header class="text-center text-light my-4">
+        <h1 class="mb-4">Daily Living To-Do List</h1> 
+        <label class="text-light">
+          Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
+        </label>
+        <label class="text-light">
+          Afterwards, select the "todo" to mark as Complete.
+        </label>
+        <label class="text-light">
+          Use This daily to Better Your Life And Routine.
+        </label>
+        <form class="add text-center my-4">
+          <input class="form-control m-auto" type="text" name="add" />
+        </form>
+      </header>
+
+      <ul class="list-group todos mx-auto text-light"></ul>
+    </div>
+
   </div>
 
   <script>
