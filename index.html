@@ -17,13 +17,57 @@
   />
   <link rel="stylesheet" href="styles.css" />
   <title>Todo List</title>
+
+  <style>
+    /* Left floating ad */
+    .floating-ad-left {
+      position: fixed;
+      top: 100px;
+      left: 0;
+      z-index: 9999;
+      /* No width set, uses natural ad width */
+      padding: 5px;
+    }
+
+    /* Right floating ad */
+    .floating-ad-right {
+      position: fixed;
+      top: 100px;
+      right: 0;
+      z-index: 9999;
+      /* No width set, uses natural ad width */
+      padding: 5px;
+    }
+
+    /* Hide ads on small screens for better UX */
+    @media (max-width: 768px) {
+      .floating-ad-left,
+      .floating-ad-right {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ✅ Top Ad Placement -->
-  <div style="text-align: center; margin: 10px auto;">
-    <script async="async" data-cfasync="false" src="https://pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+  <!-- Left floating ad -->
+  <div class="floating-ad-left">
+    <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
     <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+  </div>
+
+  <!-- Right floating ad -->
+  <div class="floating-ad-right">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
 
   <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
