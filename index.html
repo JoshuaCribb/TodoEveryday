@@ -19,73 +19,19 @@
   <title>Todo List</title>
 
   <style>
-    body {
-      padding-bottom: 140px;
-      background-color: #111;
-    }
-
-    /* Centered content with side margin for ads */
+    /* Keep the container centered on wider screens */
     .container {
       max-width: 750px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 20px;
+      margin: 0 auto;
     }
 
-    /* Fixed left ad */
-    #left-ad {
-      position: fixed;
-      top: 100px;
-      left: 0;
-      width: 480px;
-      height: 600px;
-      z-index: 1000;
-    }
-
-    /* Fixed right ad - stays far right */
-    #right-ad {
-      position: fixed;
-      top: 100px;
-      right: 0;
-      width: 480px;
-      height: 600px;
-      z-index: 1000;
-    }
-
-    /* Hide ads on small screens */
-    @media (max-width: 1400px) {
-      #left-ad, #right-ad {
-        display: none;
-      }
-    }
-
-    /* Optional: background color for ad preview clarity */
-    #left-ad, #right-ad {
-      background-color: transparent;
+    /* Optional: add space below last element so bottom ad doesn't touch list */
+    body {
+      padding-bottom: 120px;
     }
   </style>
 </head>
 <body>
-  <!-- Left Ad (Fixed to screen, stagnant) -->
-  <div id="left-ad">
-    <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-    <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
-  </div>
-
-  <!-- Right Ad (Fixed far right, original position) -->
-  <div id="right-ad">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
-        'format' : 'iframe',
-        'height' : 600,
-        'width' : 480,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
-  </div>
-
   <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
     Click to Reset
   </button>
@@ -98,15 +44,35 @@
   <div class="container">
     <header class="text-center text-light my-4">
       <h1 class="mb-4">Daily Living To-Do List</h1> 
-      <label class="text-light">Select below to add text, press "Enter" on your keyboard to create a new "To-Do"</label><br/>
-      <label class="text-light">Afterwards, select the "todo" to mark as Complete.</label><br/>
-      <label class="text-light">Use This daily to Better Your Life And Routine.</label>
+      <label class="text-light">
+        Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
+      </label>
+      <label class="text-light">
+        Afterwards, select the "todo" to mark as Complete.
+      </label>
+      <label class="text-light">
+        Use This daily to Better Your Life And Routine.
+      </label>
       <form class="add text-center my-4">
         <input class="form-control m-auto" type="text" name="add" />
       </form>
     </header>
 
     <ul class="list-group todos mx-auto text-light"></ul>
+  </div>
+
+  <!-- Sidebar skyscraper ad (fixed) -->
+  <div id="sidebar-ad" style="position: fixed; top: 100px; right: 0; width: 160px; height: 600px; background: transparent; z-index: 1000;">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
 
   <script>
