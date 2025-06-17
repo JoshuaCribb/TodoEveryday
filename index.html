@@ -22,7 +22,7 @@
     /* Flex container for left ad + main content side-by-side */
     #page-wrapper {
       display: flex;
-      align-items: center; /* vertical center */
+      align-items: flex-start; /* align to top so we can control vertical precisely */
       justify-content: center;
       gap: 20px; /* space between left ad and content */
       padding: 20px;
@@ -33,7 +33,8 @@
       height: 600px;
       transform: scale(3);
       transform-origin: top left;
-      margin-top: -30px; /* moves it a bit higher */
+      /* Shift up and down to align visually with heading */
+      margin-top: 10px; /* tweak this number as needed */
     }
 
     /* Make container flexible so it grows/shrinks nicely */
@@ -53,7 +54,7 @@
     #bottom-ad-container {
       width: 728px;
       height: 90px;
-      margin: 20px auto;
+      margin: 20px 0 40px 60px; /* top 20px, bottom 40px, left 60px to shift right */
       text-align: center;
     }
   </style>
@@ -126,4 +127,3 @@
   </div>
 </body>
 </html>
-
