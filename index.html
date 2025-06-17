@@ -19,91 +19,106 @@
   <title>Todo List</title>
 
   <style>
-    /* Container with relative positioning for absolute children */
-    #page-wrapper {
-      position: relative;
-    }
-
-    /* Left floating ad: absolute so it scrolls with page */
+    /* Left floating ad */
     .floating-ad-left {
-      position: absolute;
+      position: fixed !important;
       top: 100px;
-      left: 0;
-      z-index: 9999;
+      left: 0 !important;
       padding: 5px;
+      z-index: 9999;
+      background: transparent;
     }
-
-    /* Right floating ad: absolute so it scrolls with page */
+    /* Right floating ad */
     .floating-ad-right {
-      position: absolute;
+      position: fixed !important;
       top: 100px;
-      right: 0;
-      z-index: 9999;
+      right: 0 !important;
       padding: 5px;
+      z-index: 9999;
+      background: transparent;
     }
-
-    /* Hide ads on small screens */
-    @media (max-width: 768px) {
-      .floating-ad-left,
-      .floating-ad-right {
-        display: none;
-      }
+    /* Top banner ad container */
+    .top-banner-ad {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 728px;
+      height: 90px;
+      z-index: 10000;
+      background: transparent;
+    }
+    /* Push body content down so banner doesn't overlap */
+    body {
+      padding-top: 100px; /* slightly more than 90px banner height */
+      background: #66727a;
+      transition: background 0.3s ease;
     }
   </style>
 </head>
 <body>
 
-  <div id="page-wrapper">
+  <!-- Top banner ad -->
+  <div class="top-banner-ad">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+  </div>
 
-    <!-- Left floating ad -->
-    <div class="floating-ad-left">
-      <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-      <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
-    </div>
+  <!-- Left floating ad -->
+  <div class="floating-ad-left">
+    <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+    <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+  </div>
 
-    <!-- Right floating ad -->
-    <div class="floating-ad-right">
-      <script type="text/javascript">
-        atOptions = {
-          'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
-          'format' : 'iframe',
-          'height' : 600,
-          'width' : 160,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
-    </div>
+  <!-- Right floating ad -->
+  <div class="floating-ad-right">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+  </div>
 
-    <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
-      Click to Reset
-    </button>
+  <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
+    Click to Reset
+  </button>
 
-    <div id="bg-picker-container">
-      <label for="bg-color-picker" class="text-light">Background:</label>
-      <input type="color" id="bg-color-picker" title="Pick background color" />
-    </div>
+  <div id="bg-picker-container">
+    <label for="bg-color-picker" class="text-light">Background:</label>
+    <input type="color" id="bg-color-picker" title="Pick background color" />
+  </div>
 
-    <div class="container">
-      <header class="text-center text-light my-4">
-        <h1 class="mb-4">Daily Living To-Do List</h1> 
-        <label class="text-light">
-          Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
-        </label>
-        <label class="text-light">
-          Afterwards, select the "todo" to mark as Complete.
-        </label>
-        <label class="text-light">
-          Use This daily to Better Your Life And Routine.
-        </label>
-        <form class="add text-center my-4">
-          <input class="form-control m-auto" type="text" name="add" />
-        </form>
-      </header>
+  <div class="container">
+    <header class="text-center text-light my-4">
+      <h1 class="mb-4">Daily Living To-Do List</h1> 
+      <label class="text-light">
+        Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
+      </label>
+      <label class="text-light">
+        Afterwards, select the "todo" to mark as Complete.
+      </label>
+      <label class="text-light">
+        Use This daily to Better Your Life And Routine.
+      </label>
+      <form class="add text-center my-4">
+        <input class="form-control m-auto" type="text" name="add" />
+      </form>
+    </header>
 
-      <ul class="list-group todos mx-auto text-light"></ul>
-    </div>
-
+    <ul class="list-group todos mx-auto text-light"></ul>
   </div>
 
   <script>
