@@ -2,33 +2,24 @@
 <html lang="en">
 <head>
   <script src="https://cmp.gatekeeperconsent.com/min.js" data-cfasync="false"></script>
-<script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="false"></script>
+  <script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="false"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    crossorigin="anonymous"
-  />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="styles.css" />
   <title>Todo List</title>
 
   <style>
-    /* Flex container for left ad + main content side-by-side */
     #page-wrapper {
       display: flex;
-      align-items: flex-start; /* align to top */
+      align-items: flex-start;
       justify-content: center;
-      gap: 20px; /* space between left ad and content */
+      gap: 20px;
       padding: 20px;
-      flex-wrap: wrap; /* allow wrapping on small screens */
+      flex-wrap: wrap;
     }
 
     #left-ad-container {
@@ -36,14 +27,13 @@
       height: 600px;
       transform: scale(3);
       transform-origin: top left;
-      margin-top: 10px; /* vertical align tweak */
+      margin-top: 10px;
       flex-shrink: 0;
     }
 
-    /* Make container flexible so it grows/shrinks nicely */
     .container {
       flex-grow: 1;
-      max-width: 700px; /* adjust as needed */
+      max-width: 700px;
     }
 
     #right-ad-container {
@@ -54,15 +44,13 @@
       z-index: 1000;
     }
 
-    /* Bottom ad back to centered below content */
     #bottom-ad-container {
       width: 728px;
       height: 90px;
-      margin: 20px auto 40px auto; /* centered horizontally */
+      margin: 20px auto 40px auto;
       text-align: center;
     }
 
-    /* Background color picker fixed top-right */
     #bg-picker-container {
       position: fixed;
       top: 10px;
@@ -92,7 +80,6 @@
       padding: 0;
     }
 
-    /* Mobile-friendly ad styles */
     @media (max-width: 767px) {
       #page-wrapper {
         flex-direction: column;
@@ -124,13 +111,12 @@
 </head>
 <body>
   <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
-<script>
+  <script>
     window.ezstandalone = window.ezstandalone || {};
     ezstandalone.cmd = ezstandalone.cmd || [];
-</script>
-  <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
-    Click to Reset
-  </button>
+  </script>
+
+  <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">Click to Reset</button>
 
   <div id="bg-picker-container">
     <label for="bg-color-picker" class="text-light">Background:</label>
@@ -139,27 +125,20 @@
 
   <div id="page-wrapper">
     <div id="left-ad-container">
-      <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+      <script async data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
       <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
     </div>
 
     <div class="container">
       <header class="text-center text-light my-4">
-        <h1 class="mb-4">Daily Living To-Do List</h1> 
-        <label class="text-light">
-          Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
-        </label>
-        <label class="text-light">
-          Afterwards, select the "todo" to mark as Complete.
-        </label>
-        <label class="text-light">
-          Use This daily to Better Your Life And Routine.
-        </label>
+        <h1 class="mb-4">Daily Living To-Do List</h1>
+        <label class="text-light">Select below to add text, press "Enter" on your keyboard to create a new "To-Do"</label>
+        <label class="text-light">Afterwards, select the "todo" to mark as Complete.</label>
+        <label class="text-light">Use This daily to Better Your Life And Routine.</label>
         <form class="add text-center my-4">
           <input class="form-control m-auto" type="text" name="add" />
         </form>
       </header>
-
       <ul class="list-group todos mx-auto text-light"></ul>
     </div>
   </div>
@@ -167,16 +146,11 @@
   <script>
     function resetLocalStorage() {
       localStorage.clear();
-      location.reload(); // Refresh to update UI after clearing
+      location.reload();
     }
 
-    // Background color picker logic
     const bgPicker = document.getElementById('bg-color-picker');
-
-    // Load saved background color from localStorage or default to #222
     document.body.style.backgroundColor = localStorage.getItem('bgColor') || '#222';
-
-    // Initialize color input value to current background color
     bgPicker.value = rgbToHex(window.getComputedStyle(document.body).backgroundColor);
 
     bgPicker.addEventListener('input', (e) => {
@@ -185,7 +159,6 @@
       localStorage.setItem('bgColor', color);
     });
 
-    // Helper function to convert rgb() to hex
     function rgbToHex(rgb) {
       const result = rgb.match(/\d+/g);
       if (!result) return '#222';
@@ -206,11 +179,11 @@
   <div id="right-ad-container">
     <script type="text/javascript">
       atOptions = {
-        'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
-        'format' : 'iframe',
-        'height' : 600,
-        'width' : 160,
-        'params' : {}
+        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format': 'iframe',
+        'height': 600,
+        'width': 160,
+        'params': {}
       };
     </script>
     <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
@@ -219,14 +192,28 @@
   <div id="bottom-ad-container">
     <script type="text/javascript">
       atOptions = {
-        'key' : 'cb53e8ce5c40d13d1598b9aeba34b4d9',
-        'format' : 'iframe',
-        'height' : 90,
-        'width' : 728,
-        'params' : {}
+        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format': 'iframe',
+        'height': 90,
+        'width': 728,
+        'params': {}
       };
     </script>
     <script type="text/javascript" src="//www.highperformanceformat.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+  </div>
+
+  <!-- ✅ Fixed Bottom Ad (Best Mobile Visibility) -->
+  <div id="fixed-bottom-ad" style="
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: 320px;
+    height: 50px;
+    text-align: center;
+  ">
+    <script type='text/javascript' src='//pl26942531.profitableratecpm.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
   </div>
 </body>
 </html>
