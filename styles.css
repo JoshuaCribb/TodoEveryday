@@ -58,27 +58,12 @@ input[type="text"]:focus {
   background: none;
 }
 
-/* Floating ads styles */
-.floating-ad-left,
-.floating-ad-right {
-  position: absolute !important;
-  top: 100px !important;   /* adjust as needed */
-  padding: 5px !important;
-  z-index: 9999 !important;
-}
-
-.floating-ad-left {
-  left: 0 !important;
-}
-
-.floating-ad-right {
-  right: 0 !important;
-}
-
-/* Optional: hide ads on small screens */
-@media (max-width: 768px) {
-  .floating-ad-left,
-  .floating-ad-right {
-    display: none !important;
-  }
+/* Sticky floating ad container */
+#sticky-ad-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 300px;       /* adjust as needed */
+  z-index: 1100;      /* make sure it’s above other elements */
+  background: transparent;
 }
