@@ -23,8 +23,10 @@
       position: fixed;
       top: 100px;
       right: 0;
-      width: 160px;
+      width: 320px; /* Allows 300px ads with some padding */
+      max-width: 100%;
       z-index: 9999;
+      padding: 5px;
     }
 
     @media (max-width: 768px) {
@@ -64,7 +66,7 @@
     <ul class="list-group todos mx-auto text-light"></ul>
   </div>
 
-  <!-- ✅ Floating Right Adsterra Ad -->
+  <!-- ✅ Floating Right Ad (300x250 or larger supported) -->
   <div class="floating-ad">
     <script async="async" data-cfasync="false" src="https://pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
     <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
