@@ -33,7 +33,7 @@
       height: 600px;
       transform: scale(3);
       transform-origin: top left;
-      margin-top: 10px; /* keep the vertical alignment tweak */
+      margin-top: 10px; /* vertical align tweak */
     }
 
     /* Make container flexible so it grows/shrinks nicely */
@@ -57,12 +57,47 @@
       margin: 20px auto 40px auto; /* centered horizontally */
       text-align: center;
     }
+
+    /* Background color picker fixed top-right */
+    #bg-picker-container {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 5px 10px;
+      border-radius: 5px;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #bg-picker-container label {
+      margin: 0;
+      font-size: 14px;
+      user-select: none;
+      color: white;
+    }
+
+    #bg-color-picker {
+      cursor: pointer;
+      width: 35px;
+      height: 25px;
+      border: none;
+      background: none;
+      padding: 0;
+    }
   </style>
 </head>
 <body>
   <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
     Click to Reset
   </button>
+
+  <div id="bg-picker-container">
+    <label for="bg-color-picker" class="text-light">Background:</label>
+    <input type="color" id="bg-color-picker" title="Pick background color" />
+  </div>
 
   <div id="page-wrapper">
     <div id="left-ad-container">
@@ -95,6 +130,36 @@
     function resetLocalStorage() {
       localStorage.clear();
       location.reload(); // Refresh to update UI after clearing
+    }
+
+    // Background color picker logic
+    const bgPicker = document.getElementById('bg-color-picker');
+
+    // Load saved background color from localStorage or default to #222
+    document.body.style.backgroundColor = localStorage.getItem('bgColor') || '#222';
+
+    // Initialize color input value to current background color
+    bgPicker.value = rgbToHex(window.getComputedStyle(document.body).backgroundColor);
+
+    bgPicker.addEventListener('input', (e) => {
+      const color = e.target.value;
+      document.body.style.backgroundColor = color;
+      localStorage.setItem('bgColor', color);
+    });
+
+    // Helper function to convert rgb() to hex
+    function rgbToHex(rgb) {
+      const result = rgb.match(/\d+/g);
+      if (!result) return '#222';
+      return (
+        '#' +
+        result
+          .map(x => {
+            const hex = parseInt(x).toString(16);
+            return hex.length === 1 ? '0' + hex : hex;
+          })
+          .join('')
+      );
     }
   </script>
 
