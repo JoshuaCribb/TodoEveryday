@@ -15,7 +15,7 @@ const defaultTodos = [
   { text: "Do Pushups, Good Form", completed: false },
   { text: "Drink Alkaline Water", completed: false },
   { text: "Open Up Your Todo List, Add Anything if Needed.", completed: false },
-  { text: "Work on Getting your Money", completed: false },
+  { text: "Get your Money", completed: false },
   { text: "Spend as Little as Possible while saving as much as possible", completed: false },
   { text: "Out-Work Everyone else. (Find a High Paying Opportunity & Stay Down)", completed: false },
   { text: "Consistently Eat Clean and Vibrant alkaline meals Throughout the day", completed: false },
