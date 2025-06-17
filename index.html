@@ -19,17 +19,12 @@
   <title>Todo List</title>
 
   <style>
-    /* Keep the container centered on wider screens */
-    .container {
-      max-width: 750px;
-      margin: 0 auto;
-    }
-
-    /* Optional: add space below last element so bottom ad doesn't touch list */
-    body {
-      padding-bottom: 120px;
-      background: #66727a;
-      transition: background 0.3s ease;
+    #right-ad-container {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 1000;
     }
   </style>
 </head>
@@ -45,7 +40,7 @@
 
   <div class="container">
     <header class="text-center text-light my-4">
-      <h1 class="mb-4">Daily Living To-Do List</h1>
+      <h1 class="mb-4">Daily Living To-Do List</h1> 
       <label class="text-light">
         Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
       </label>
@@ -63,8 +58,16 @@
     <ul class="list-group todos mx-auto text-light"></ul>
   </div>
 
-  <!-- Sidebar skyscraper ad (fixed) -->
-  <div id="sidebar-ad" style="position: fixed; top: 100px; right: 0; width: 160px; height: 600px; background: transparent; z-index: 1000;">
+  <script>
+    function resetLocalStorage() {
+      localStorage.clear();
+      location.reload(); // Refresh to update UI after clearing
+    }
+  </script>
+
+  <script src="app.js"></script>
+
+  <div id="right-ad-container">
     <script type="text/javascript">
       atOptions = {
         'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
@@ -75,42 +78,6 @@
       };
     </script>
     <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
-  </div>
-
-  <script>
-    function resetLocalStorage() {
-      localStorage.clear();
-      location.reload(); // Refresh to update UI after clearing
-    }
-  </script>
-
-  <script src="app.js"></script>
-
-  <!-- Bottom leaderboard ad -->
-  <div style="text-align: center; margin: 40px auto;">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : 'cb53e8ce5c40d13d1598b9aeba34b4d9',
-        'format' : 'iframe',
-        'height' : 90,
-        'width' : 728,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
-  </div>
-
-  <!-- Sticky floating ad -->
-  <div id="sticky-ad-container" style="
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 300px;
-    z-index: 1100;
-    background: transparent;
-  ">
-    <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-    <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
   </div>
 </body>
 </html>
