@@ -17,17 +17,49 @@
   />
   <link rel="stylesheet" href="styles.css" />
   <title>Todo List</title>
-
   <style>
-    body {
-      transition: background-color 0.3s ease;
+    /* Flex container for left ad + main content side-by-side */
+    #page-wrapper {
+      display: flex;
+      align-items: flex-start; /* align to top */
+      justify-content: center;
+      gap: 20px; /* space between left ad and content */
+      padding: 20px;
+      flex-wrap: wrap; /* allow wrapping on small screens */
     }
 
+    #left-ad-container {
+      width: 160px;
+      height: 600px;
+      transform: scale(3);
+      transform-origin: top left;
+      margin-top: 10px; /* vertical align tweak */
+      flex-shrink: 0;
+    }
+
+    /* Make container flexible so it grows/shrinks nicely */
     .container {
-      max-width: 700px;
-      margin: 20px auto;
+      flex-grow: 1;
+      max-width: 700px; /* adjust as needed */
     }
 
+    #right-ad-container {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 1000;
+    }
+
+    /* Bottom ad back to centered below content */
+    #bottom-ad-container {
+      width: 728px;
+      height: 90px;
+      margin: 20px auto 40px auto; /* centered horizontally */
+      text-align: center;
+    }
+
+    /* Background color picker fixed top-right */
     #bg-picker-container {
       position: fixed;
       top: 10px;
@@ -56,10 +88,44 @@
       background: none;
       padding: 0;
     }
+
+    /* Mobile-friendly ad styles */
+    @media (max-width: 767px) {
+      #page-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #left-ad-container {
+        width: 160px !important;
+        height: 25px !important;
+        transform: none !important;
+        margin: 10px auto !important;
+      }
+
+      #right-ad-container {
+        position: static !important;
+        width: 320px !important;
+        height: 50px !important;
+        margin: 10px auto !important;
+        transform: none !important;
+      }
+
+      #bottom-ad-container {
+        width: 320px !important;
+        height: 50px !important;
+        margin: 10px auto 40px auto !important;
+      }
+    }
   </style>
 </head>
 <body>
-  <button onclick="resetLocalStorage()" class="btn btn-warning mb-4" aria-label="Reset to-do list and background color">
+  <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+  <script>
+    window.ezstandalone = window.ezstandalone || {};
+    ezstandalone.cmd = ezstandalone.cmd || [];
+  </script>
+  <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
     Click to Reset
   </button>
 
@@ -68,37 +134,49 @@
     <input type="color" id="bg-color-picker" title="Pick background color" />
   </div>
 
-  <div class="container">
-    <header class="text-center text-light my-4">
-      <h1 class="mb-4">Daily Living To-Do List</h1> 
-      <label class="text-light">
-        Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
-      </label>
-      <label class="text-light">
-        Afterwards, select the "todo" to mark as Complete.
-      </label>
-      <label class="text-light">
-        Use This daily to Better Your Life And Routine.
-      </label>
-      <label class="text-light">
-        Click Reset On Top Left If you Have any Errors.
-      </label>
-      <form class="add text-center my-4">
-        <input class="form-control m-auto" type="text" name="add" />
-      </form>
-    </header>
+  <div id="page-wrapper">
+    <div id="left-ad-container">
+      <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+      <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+    </div>
 
-    <ul class="list-group todos mx-auto text-light"></ul>
+    <div class="container">
+      <header class="text-center text-light my-4">
+        <h1 class="mb-4">Daily Living Grocery List</h1> 
+        <label class="text-light">
+          This is my Organic Healthy Living Grocery List, 
+        </label>
+        <label class="text-light">
+          Designed for Wholefoods/Weaver Street.
+        </label>
+        <label class="text-light">
+          Use This to Better Your Life And Routine.
+        </label>
+        <label class="text-light">
+          Click Reset On Top Left If you Have any Errors.
+        </label>
+        <form class="add text-center my-4">
+          <input class="form-control m-auto" type="text" name="add" />
+        </form>
+      </header>
+
+      <ul class="list-group todos mx-auto text-light"></ul>
+    </div>
   </div>
 
   <script>
     function resetLocalStorage() {
       localStorage.clear();
-      location.reload();
+      location.reload(); // Refresh to update UI after clearing
     }
 
+    // Background color picker logic
     const bgPicker = document.getElementById('bg-color-picker');
+
+    // Load saved background color from localStorage or default to #222
     document.body.style.backgroundColor = localStorage.getItem('bgColor') || '#222';
+
+    // Initialize color input value to current background color
     bgPicker.value = rgbToHex(window.getComputedStyle(document.body).backgroundColor);
 
     bgPicker.addEventListener('input', (e) => {
@@ -107,6 +185,7 @@
       localStorage.setItem('bgColor', color);
     });
 
+    // Helper function to convert rgb() to hex
     function rgbToHex(rgb) {
       const result = rgb.match(/\d+/g);
       if (!result) return '#222';
@@ -124,6 +203,34 @@
 
   <script src="app.js"></script>
 
+  <div id="right-ad-container">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+  </div>
+
+  <div id="bottom-ad-container">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+  </div>
+
+  <!-- New additional ad script you asked to add -->
+  <script type='text/javascript' src='//pl26942549.profitableratecpm.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
   <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; margin-top: 40px;">
     © 2025 TodoEveryday.click All rights reserved.<br>
     <span style="font-size: larger;">
