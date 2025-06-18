@@ -21,6 +21,8 @@
   <style>
     body {
       transition: background-color 0.3s ease;
+      margin-left: 180px; /* to avoid overlap with left ad */
+      margin-right: 180px; /* to avoid overlap with right ad */
     }
 
     .container {
@@ -35,7 +37,7 @@
       background: rgba(0, 0, 0, 0.6);
       padding: 5px 10px;
       border-radius: 5px;
-      z-index: 2000;
+      z-index: 3000;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -57,23 +59,26 @@
       padding: 0;
     }
 
-    /* Fixed ad containers */
-    #fixed-ad-left, #fixed-ad-right {
+    /* Left Ad Container */
+    #fixed-ad-left {
       position: fixed;
-      top: 100px; /* below bg picker */
+      top: 100px;
+      left: 0;
       width: 160px;
       height: 600px;
+      z-index: 4000;
       background: transparent;
-      z-index: 2100;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
 
-    #fixed-ad-left {
-      left: 0;
-    }
-
+    /* Right Ad Container */
     #fixed-ad-right {
+      position: fixed;
+      top: 100px;
       right: 0;
+      width: 160px;
+      height: 600px;
+      z-index: 4000;
+      background: transparent;
     }
   </style>
 </head>
@@ -87,26 +92,28 @@
     <input type="color" id="bg-color-picker" title="Pick background color" />
   </div>
 
+  <!-- Left Ad -->
   <div id="fixed-ad-left">
     <script type="text/javascript">
       atOptions = {
-        'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
-        'format' : 'iframe',
-        'height' : 600,
-        'width' : 160,
-        'params' : {}
+        key: '1b104b58bb7ca585cc9a9995c94ecb40',
+        format: 'iframe',
+        height: 600,
+        width: 160,
+        params: {}
       };
     </script>
     <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
 
+  <!-- Right Ad -->
   <div id="fixed-ad-right">
-    <script type='text/javascript' src='//pl26942531.profitableratecpm.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
+    <script type="text/javascript" src="//pl26942531.profitableratecpm.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js"></script>
   </div>
 
   <div class="container">
     <header class="text-center text-light my-4">
-      <h1 class="mb-4">Daily Living To-Do List</h1> 
+      <h1 class="mb-4">Daily Living To-Do List</h1>
       <label class="text-light">
         Select below to add text, press "Enter" on your keyboard to create a new "To-Do"
       </label>
@@ -161,7 +168,7 @@
   <script src="app.js"></script>
 
   <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; margin-top: 40px;">
-    © 2025 TodoEveryday.click All rights reserved.<br>
+    © 2025 TodoEveryday.click All rights reserved.<br />
     <span style="font-size: larger;">
       <a href="grocery.html" target="_blank" rel="noopener noreferrer" style="color: #888; text-decoration: underline;">
         Grocery List
