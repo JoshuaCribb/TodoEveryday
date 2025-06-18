@@ -56,6 +56,25 @@
       background: none;
       padding: 0;
     }
+
+    /* Fixed ad containers */
+    #fixed-ad-left, #fixed-ad-right {
+      position: fixed;
+      top: 100px; /* below bg picker */
+      width: 160px;
+      height: 600px;
+      background: transparent;
+      z-index: 2100;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    #fixed-ad-left {
+      left: 0;
+    }
+
+    #fixed-ad-right {
+      right: 0;
+    }
   </style>
 </head>
 <body>
@@ -66,6 +85,23 @@
   <div id="bg-picker-container">
     <label for="bg-color-picker" class="text-light">Background:</label>
     <input type="color" id="bg-color-picker" title="Pick background color" />
+  </div>
+
+  <div id="fixed-ad-left">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+  </div>
+
+  <div id="fixed-ad-right">
+    <script type='text/javascript' src='//pl26942531.profitableratecpm.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
   </div>
 
   <div class="container">
@@ -123,9 +159,6 @@
   </script>
 
   <script src="app.js"></script>
-
-  <!-- Profitablerate ad script -->
-  <script type='text/javascript' src='//pl26942531.profitableratecpm.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
 
   <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; margin-top: 40px;">
     © 2025 TodoEveryday.click All rights reserved.<br>
