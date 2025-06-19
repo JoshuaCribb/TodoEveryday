@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <!-- Force desktop layout on mobile by setting fixed width -->
-  <meta name="viewport" content="width=1024" />
+  <meta name="viewport" content="width=1024, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Todo List</title>
 
@@ -12,6 +12,13 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
+    html, body {
+      max-width: 1024px;
+      overflow-x: auto; /* Allow horizontal scrolling if needed */
+      -webkit-text-size-adjust: 100%; /* Prevent iOS font scaling */
+      -ms-text-size-adjust: 100%;
+    }
+
     body {
       background-color: #222;
     }
