@@ -1,5 +1,5 @@
-const STORAGE_KEY_TODOS = "todoApp1_todos";
-const STORAGE_KEY_BG = "todoApp1_bgColor";
+const STORAGE_KEY_TODOS = "todoApp2_todos";
+const STORAGE_KEY_BG = "todoApp2_bgColor";
 
 const addForm = document.querySelector(".add");
 const list = document.querySelector(".todos");
@@ -7,10 +7,28 @@ const bgColorPicker = document.getElementById("bg-color-picker");
 
 // Default todos
 const defaultTodos = [
-  { text: "5 Gallons+ of Alkaline Water, Preferably from the machine", completed: false },
-  { text: " Blank ", completed: false },
-
-
+  { text: "Wake up in Peace and gratitude (regardless of the scenario)", completed: false },
+  { text: "Brush Your Teeth", completed: false },
+  { text: "Practice Olive Oil Pulling (try for 15 minutes)", completed: false },
+  { text: "Drink Alkaline Water", completed: false },
+  { text: "Drink a Fresh Shot of Olive oil", completed: false },
+  { text: "Stretch Your Body and Remind yourself to Keep Good Posture", completed: false },
+  { text: "No Granulated Sugar, No Processed foods. Ever", completed: false },
+  { text: "Mew Throughout the day Continuously with other Jaw Exercises", completed: false },
+  { text: "either Do Pushups, Good Form", completed: false },
+  { text: "or Do Squats, Good Form", completed: false },
+  { text: "Drink Alkaline Water", completed: false },
+  { text: "Open Up Your Todo List, Add Anything if Needed.", completed: false },
+  { text: "Get your Money", completed: false },
+  { text: "Spend as Little as Possible while saving as much as possible", completed: false },
+  { text: "Out-Work Everyone else. (Find a High Paying Opportunity & Stay Down)", completed: false },
+  { text: "Consistently Eat Clean and Vibrant alkaline meals Throughout the day", completed: false },
+  { text: "Take a Shower, (If Needed, Clip your Toe/Fingernails and Beard.)", completed: false },
+  { text: "Brush Your Teeth", completed: false },
+  { text: "Practice Olive Oil Pulling (try for 15 minutes)", completed: false },
+  { text: "Drink Alkaline Water", completed: false },
+  { text: "Drink a Fresh Shot of Olive oil", completed: false },
+  { text: "Sleep in Peace and gratitude (regardless of the scenario)", completed: false }
 ];
 
 // Load todos from localStorage or default
