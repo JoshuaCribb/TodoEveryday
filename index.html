@@ -18,19 +18,34 @@
   <link rel="stylesheet" href="styles.css" />
   <title>Todo List</title>
  <style>
+    /* Parent wrapper is relative so absolute children position properly */
+    #page-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Align content top */
+      padding-top: 20px; /* optional top padding */
+    }
+
+    /* Absolutely position the left ad, push down 100px */
     #left-ad-container {
+      position: absolute;
+      top: 100px; /* lowered by 100px */
+      left: 0;
       width: 100px;
       height: 270px;
       transform: scale(3);
       transform-origin: top left;
-      margin-top: 10px; /* vertical align tweak */
+      margin-top: 0; /* remove margin-top to avoid pushing content */
       flex-shrink: 0;
+      z-index: 1000;
     }
 
-    /* Make container flexible so it grows/shrinks nicely */
+    /* Main content container flex-grow and max-width */
     .container {
       flex-grow: 1;
       max-width: 700px; /* adjust as needed */
+      z-index: 1; /* above the ad */
     }
 
     #right-ad-container {
@@ -41,11 +56,10 @@
       z-index: 1000;
     }
 
-    /* Bottom ad back to centered below content */
     #bottom-ad-container {
       width: 728px;
       height: 90px;
-      margin: 20px auto 40px auto; /* centered horizontally */
+      margin: 20px auto 40px auto;
       text-align: center;
     }
 
@@ -84,9 +98,11 @@
       #page-wrapper {
         flex-direction: column;
         align-items: center;
+        position: static; /* reset positioning */
       }
 
       #left-ad-container {
+        position: static !important;
         width: 160px !important;
         height: 25px !important;
         transform: none !important;
@@ -168,6 +184,7 @@
     </div>
   </div>
 
+  <!-- The rest of your scripts and ad containers unchanged -->
   <script>
     function resetLocalStorage() {
       localStorage.clear();
