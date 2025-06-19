@@ -13,7 +13,7 @@
   <style>
     body {
       background-color: #222;
-      margin-bottom: 0; /* remove extra bottom space */
+      padding-bottom: 110px; /* Space for fixed bottom ad row */
     }
 
     #page-wrapper {
@@ -49,20 +49,11 @@
       z-index: 1000;
     }
 
-    /* Changed from fixed to relative so it scrolls with content */
-    #bottom-ad-row {
-      position: relative;
-      width: 100%;
-      background: rgba(20, 20, 20, 0.95);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 0;
-      box-sizing: border-box;
-      z-index: 1100;
-      overflow-x: auto;
-      margin-bottom: 10px; /* space above footer */
+    #bottom-ad-container {
+      width: 728px;
+      height: 90px;
+      margin: 20px auto 40px auto;
+      text-align: center;
     }
 
     /* Navbar positioning fixes */
@@ -81,13 +72,31 @@
       pointer-events: auto; /* keep input clickable */
       user-select: none;
       color: #ddd;
+      z-index: 1200;
     }
 
     #bg-picker-center label {
       margin-bottom: 0;
     }
 
-    /* Responsive adjustments */
+    /* Fixed bottom ad row */
+    #bottom-ad-row {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(20, 20, 20, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      box-sizing: border-box;
+      z-index: 1100;
+      overflow-x: auto;
+      height: 100px; /* Adjust if needed */
+    }
+
     @media (max-width: 767px) {
       #page-wrapper {
         flex-direction: column;
@@ -95,7 +104,7 @@
         position: static;
       }
 
-      #left-ad-container, #right-ad-container {
+      #left-ad-container, #right-ad-container, #bottom-ad-container {
         position: static !important;
         transform: none !important;
         margin: 10px auto !important;
@@ -103,19 +112,20 @@
         height: 50px !important;
       }
 
-      #bottom-ad-row {
-        width: 320px;
-        height: 50px;
-        margin: 10px auto 10px auto;
-      }
-
       /* On small screens, reposition the bg picker inside the flow */
       #bg-picker-center {
         position: static;
         transform: none;
-        margin: 0 auto 10px auto;
+        margin: 0 auto;
         padding: 8px 0;
         color: #ddd;
+      }
+
+      #bottom-ad-row {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 10px;
+        gap: 10px;
       }
     }
   </style>
@@ -183,7 +193,11 @@
     <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
 
-  <!-- Bottom ad row container with all 7 ads aligned in a row -->
+  <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; margin-top: 40px;">
+    © 2025 TodoEveryday.click All rights reserved.
+  </footer>
+
+  <!-- Fixed bottom ad row BELOW footer -->
   <div id="bottom-ad-row">
     <!-- Ad 1 -->
     <script type="text/javascript">
@@ -231,16 +245,12 @@
     <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
     <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
 
-    <!-- Ad 7: External link, embedded below -->
+    <!-- Ad 7 -->
     <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013" 
             style="border:none; width:160px; height:600px;" 
             scrolling="no" 
             title="Ad 7 iframe"></iframe>
   </div>
-
-  <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; margin-top: 10px;">
-    © 2025 TodoEveryday.click All rights reserved.
-  </footer>
 
   <script>
     function resetLocalStorage() {
