@@ -3,8 +3,6 @@ body {
   transition: background 0.3s ease;
   margin: 0;
   padding: 0;
-  overflow-x: auto; /* allow horizontal scroll on mobile */
-  max-width: 1024px; /* fix width to desktop size */
 }
 
 #page-wrapper {
@@ -13,8 +11,6 @@ body {
   justify-content: center;
   align-items: flex-start; /* ensures top alignment */
   padding-top: 40px; /* optional spacing from top */
-  max-width: 1024px; /* fix width */
-  margin: 0 auto;
 }
 
 .container {
@@ -86,10 +82,16 @@ input[type="text"]:focus {
   transform-origin: top left;
   z-index: 1000;
 }
-
-/* Removed media query to keep desktop layout on mobile */
-/* 
 @media (max-width: 767px) {
-  ...
+  #left-ad-container,
+  #right-ad-container,
+  #bottom-ad-container {
+    position: static !important;    /* reset absolute/fixed positioning */
+    width: auto !important;         /* allow normal width */
+    height: auto !important;        /* allow normal height */
+    transform: none !important;     /* disable scaling */
+    margin: 10px auto !important;   /* center horizontally with vertical spacing */
+    display: block !important;      /* ensure visible */
+    z-index: 1000 !important;       /* keep on top */
+  }
 }
-*/
