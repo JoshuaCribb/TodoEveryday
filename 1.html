@@ -13,6 +13,7 @@
   <style>
     body {
       background-color: #222;
+      padding-bottom: 110px; /* Space for bottom ads */
     }
 
     #page-wrapper {
@@ -20,7 +21,7 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding-top: 20px;
+      padding-top: 40px;
     }
 
     .container {
@@ -51,7 +52,7 @@
     #bottom-ad-container {
       width: 728px;
       height: 90px;
-      margin: 20px auto 40px auto;
+      margin: 20px auto 0 auto;
       text-align: center;
     }
 
@@ -68,17 +69,31 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      pointer-events: auto; /* keep input clickable */
+      pointer-events: auto;
       user-select: none;
       color: #ddd;
-      z-index: 1050;
+      z-index: 1200;
     }
 
     #bg-picker-center label {
       margin-bottom: 0;
     }
 
-    /* Responsive adjustments */
+    /* Bottom translucent ad row */
+    #bottom-ad-row {
+      background: rgba(20, 20, 20, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      box-sizing: border-box;
+      z-index: 1100;
+      overflow-x: auto;
+      height: 100px; /* Adjust if needed */
+      margin-top: 40px;
+    }
+
     @media (max-width: 767px) {
       #page-wrapper {
         flex-direction: column;
@@ -101,6 +116,13 @@
         margin: 0 auto;
         padding: 8px 0;
         color: #ddd;
+      }
+
+      #bottom-ad-row {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 10px;
+        gap: 10px;
       }
     }
   </style>
@@ -181,7 +203,64 @@
     <script src="//www.highperformanceformat.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
   </div>
 
-  <script src='//pl26942549.profitableratecpm.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
+  <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; margin-top: 40px;">
+    © 2025 TodoEveryday.click All rights reserved.
+  </footer>
+
+  <!-- Translucent ad row BELOW footer -->
+  <div id="bottom-ad-row">
+    <!-- Ad 1 -->
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format': 'iframe',
+        'height': 90,
+        'width': 728,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+
+    <!-- Ad 2 -->
+    <script type="text/javascript">
+      atOptions = {
+        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format': 'iframe',
+        'height': 600,
+        'width': 160,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+
+    <!-- Ad 3 -->
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'ee045765b78ee840108a8f527e35cd85',
+        'format': 'iframe',
+        'height': 60,
+        'width': 468,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
+
+    <!-- Ad 4 -->
+    <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
+
+    <!-- Ad 5 -->
+    <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
+
+    <!-- Ad 6 -->
+    <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+    <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+
+    <!-- Ad 7 -->
+    <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013" 
+            style="border:none; width:160px; height:600px;" 
+            scrolling="no" 
+            title="Ad 7 iframe"></iframe>
+  </div>
 
   <script>
     function resetLocalStorage() {
