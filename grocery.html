@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <!-- Force desktop layout on mobile -->
-  <meta name="viewport" content="width=1024" />
+  <meta name="viewport" content="width=2048" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Grocery List</title>
 
@@ -14,7 +14,6 @@
   <style>
     body {
       background-color: #222;
-      /* Removed padding-bottom as no fixed bottom ads */
     }
 
     #page-wrapper {
@@ -31,33 +30,55 @@
       z-index: 1;
     }
 
-    #left-ad-container {
+    #left-ad-container, #left-ad-container-mobile {
       position: absolute;
       top: 100px;
       left: 0;
       width: 100px;
       height: 270px;
-      transform: scale(3);
       transform-origin: top left;
       z-index: 1000;
     }
+    #left-ad-container {
+      transform: scale(3);
+    }
+    #left-ad-container-mobile {
+      position: static !important;
+      transform: none !important;
+      width: 320px !important;
+      height: 50px !important;
+      margin: 10px auto !important;
+    }
 
-    #right-ad-container {
-      position: fixed;
+    #right-ad-container, #right-ad-container-mobile {
+      z-index: 1000;
       top: 50%;
       right: 0;
       transform: translateY(-50%);
-      z-index: 1000;
+    }
+    #right-ad-container {
+      position: fixed;
+    }
+    #right-ad-container-mobile {
+      position: static !important;
+      transform: none !important;
+      width: 320px !important;
+      height: 50px !important;
+      margin: 10px auto !important;
     }
 
-    #bottom-ad-container {
+    #bottom-ad-container, #bottom-ad-container-mobile {
       width: 728px;
       height: 90px;
       margin: 20px auto 40px auto;
       text-align: center;
     }
+    #bottom-ad-container-mobile {
+      width: 320px !important;
+      height: 50px !important;
+      margin: 10px auto !important;
+    }
 
-    /* Navbar positioning fixes */
     nav.navbar {
       position: relative;
     }
@@ -70,7 +91,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      pointer-events: auto; /* keep input clickable */
+      pointer-events: auto;
       user-select: none;
       color: #ddd;
       z-index: 1200;
@@ -80,16 +101,19 @@
       margin-bottom: 0;
     }
 
-    /* Large single banner above footer */
-    #single-bottom-banner {
+    #single-bottom-banner, #single-bottom-banner-mobile {
       width: 728px;
       height: 90px;
       margin: 20px auto;
       text-align: center;
     }
+    #single-bottom-banner-mobile {
+      width: 320px !important;
+      height: 50px !important;
+      margin: 10px auto !important;
+    }
 
-    /* Translucent multi-ad container BELOW footer */
-    #bottom-ad-row {
+    #bottom-ad-row, #bottom-ad-row-mobile {
       position: static;
       background: rgba(20, 20, 20, 0.85);
       display: flex;
@@ -102,45 +126,53 @@
       flex-wrap: nowrap;
       margin-top: 20px;
     }
+    #bottom-ad-row-mobile {
+      flex-wrap: wrap !important;
+      padding: 10px !important;
+      gap: 10px !important;
+      width: 320px !important;
+      margin: 10px auto !important;
+      background: rgba(20,20,20,0.85);
+    }
 
-    #bottom-ad-row > * {
+    #bottom-ad-row > *, #bottom-ad-row-mobile > * {
       flex: 0 0 auto;
     }
 
-    @media (max-width: 767px) {
+    /* Mobile Hide & Show classes */
+    .mobileShow {display: none;}
+    .mobileHide {display: inline;}
+
+    @media only screen and (max-width: 767px) {
       #page-wrapper {
         flex-direction: column;
         align-items: center;
         position: static;
       }
 
-      #left-ad-container, #right-ad-container, #bottom-ad-container {
-        position: static !important;
-        transform: none !important;
-        margin: 10px auto !important;
-        width: 320px !important;
-        height: 50px !important;
+      /* Show mobile versions and hide desktop versions */
+      .mobileShow {
+        display: block !important;
+      }
+      .mobileHide {
+        display: none !important;
       }
 
-      /* On small screens, reposition the bg picker inside the flow */
-      #bg-picker-center {
-        position: static;
-        transform: none;
-        margin: 0 auto;
-        padding: 8px 0;
-        color: #ddd;
+      /* Override styles for mobile ad containers */
+      #left-ad-container {
+        display: none !important;
       }
-
-      #bottom-ad-row {
-        flex-wrap: wrap;
-        padding: 10px;
-        gap: 10px;
+      #right-ad-container {
+        display: none !important;
       }
-
+      #bottom-ad-container {
+        display: none !important;
+      }
       #single-bottom-banner {
-        width: 320px;
-        height: 50px;
-        margin: 10px auto;
+        display: none !important;
+      }
+      #bottom-ad-row {
+        display: none !important;
       }
     }
   </style>
@@ -148,7 +180,6 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid d-flex justify-content-between align-items-center">
-      <!-- Left nav links -->
       <ul class="navbar-nav flex-row">
         <li class="nav-item mx-2">
           <a class="nav-link" href="index.html"><i class="fas fa-list-ul"></i> Everyday To-Do</a>
@@ -157,29 +188,26 @@
           <a class="nav-link" href="grocery.html"><i class="fas fa-list-ul"></i> Grocery List</a>
         </li>
       </ul>
-
-      <!-- Right reset button -->
       <button onclick="resetLocalStorage()" class="btn btn-warning">
         Click to Reset
       </button>
     </div>
-
-    <!-- Center background picker absolutely centered -->
     <div id="bg-picker-center">
       <label for="bg-color-picker">Background:</label>
-      <input
-        type="color"
-        id="bg-color-picker"
-        title="Pick background color"
-        style="width: 35px; height: 25px; border: none; padding: 0; background: none; cursor: pointer;"
-      />
+      <input type="color" id="bg-color-picker" title="Pick background color" style="width: 35px; height: 25px; border: none; padding: 0; background: none; cursor: pointer;" />
     </div>
   </nav>
 
   <div id="page-wrapper">
-    <div id="left-ad-container">
+    <!-- Desktop Left Ad -->
+    <div id="left-ad-container" class="mobileHide">
       <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
       <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+    </div>
+    <!-- Mobile Left Ad -->
+    <div id="left-ad-container-mobile" class="mobileShow">
+      <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+      <div id="container-c76ba32263dd5327ba120e38be87286b-mobile"></div>
     </div>
 
     <div class="container text-center text-light">
@@ -195,7 +223,8 @@
     </div>
   </div>
 
-  <div id="right-ad-container">
+  <!-- Desktop Right Ad -->
+  <div id="right-ad-container" class="mobileHide">
     <script>
       atOptions = {
         'key': '1b104b58bb7ca585cc9a9995c94ecb40',
@@ -207,9 +236,22 @@
     </script>
     <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
+  <!-- Mobile Right Ad -->
+  <div id="right-ad-container-mobile" class="mobileShow">
+    <script>
+      atOptions = {
+        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format': 'iframe',
+        'height': 50,
+        'width': 320,
+        'params': {}
+      };
+    </script>
+    <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+  </div>
 
-  <!-- Single large banner ABOVE footer -->
-  <div id="single-bottom-banner">
+  <!-- Desktop Bottom Banner -->
+  <div id="bottom-ad-container" class="mobileHide">
     <script type="text/javascript">
       atOptions = {
         'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
@@ -221,15 +263,53 @@
     </script>
     <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
   </div>
+  <!-- Mobile Bottom Banner -->
+  <div id="bottom-ad-container-mobile" class="mobileShow">
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format': 'iframe',
+        'height': 50,
+        'width': 320,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+  </div>
 
-  <!-- Footer -->
+  <!-- Original banner above footer (desktop) -->
+  <div id="single-bottom-banner" class="mobileHide">
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format': 'iframe',
+        'height': 90,
+        'width': 728,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+  </div>
+  <!-- Original banner above footer (mobile) -->
+  <div id="single-bottom-banner-mobile" class="mobileShow">
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format': 'iframe',
+        'height': 50,
+        'width': 320,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+  </div>
+
   <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; background: #222; position: relative; z-index: 10;">
     © 2025 TodoEveryday.click All rights reserved.
   </footer>
 
-  <!-- Translucent multi-ad container BELOW footer -->
-  <div id="bottom-ad-row">
-    <!-- Ad 2 -->
+  <!-- Translucent ad container below footer desktop -->
+  <div id="bottom-ad-row" class="mobileHide">
     <script type="text/javascript">
       atOptions = {
         'key': '1b104b58bb7ca585cc9a9995c94ecb40',
@@ -241,7 +321,6 @@
     </script>
     <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
 
-    <!-- Ad 3 -->
     <script type="text/javascript">
       atOptions = {
         'key': 'ee045765b78ee840108a8f527e35cd85',
@@ -253,19 +332,48 @@
     </script>
     <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
 
-    <!-- Ad 4 -->
     <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
-
-    <!-- Ad 5 -->
     <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
-
-    <!-- Ad 6 -->
     <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
     <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
 
-    <!-- Ad 7 -->
     <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013"
             style="border:none; width:160px; height:600px;"
+            scrolling="no"
+            title="Ad 7 iframe"></iframe>
+  </div>
+
+  <!-- Translucent ad container below footer mobile -->
+  <div id="bottom-ad-row-mobile" class="mobileShow">
+    <script type="text/javascript">
+      atOptions = {
+        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format': 'iframe',
+        'height': 50,
+        'width': 320,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'ee045765b78ee840108a8f527e35cd85',
+        'format': 'iframe',
+        'height': 60,
+        'width': 320,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
+
+    <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
+    <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
+    <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+    <div id="container-c76ba32263dd5327ba120e38be87286b-mobile"></div>
+
+    <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013"
+            style="border:none; width:320px; height:50px;"
             scrolling="no"
             title="Ad 7 iframe"></iframe>
   </div>
@@ -273,7 +381,15 @@
   <script>
     function resetLocalStorage() {
       localStorage.clear();
-      location.reload();
+
+      document.body.style.backgroundColor = '#222';
+      const bgPicker = document.getElementById('bg-color-picker');
+      if (bgPicker) bgPicker.value = '#222';
+
+      const todoList = document.querySelector('.todos');
+      if (todoList) todoList.innerHTML = '';
+
+      setTimeout(() => location.reload(), 50);
     }
 
     const bgPicker = document.getElementById('bg-color-picker');
