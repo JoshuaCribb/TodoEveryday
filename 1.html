@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Force desktop layout on mobile -->
+  <meta name="viewport" content="width=2048" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Grocery List</title>
+  <title></title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
   <style>
     body {
       background-color: #222;
-      padding-bottom: 110px; /* Space for bottom ads */
     }
 
     #page-wrapper {
@@ -30,33 +32,55 @@
       z-index: 1;
     }
 
-    #left-ad-container {
+    #left-ad-container, #left-ad-container-mobile {
       position: absolute;
       top: 100px;
       left: 0;
       width: 100px;
       height: 270px;
-      transform: scale(3);
       transform-origin: top left;
       z-index: 1000;
     }
+    #left-ad-container {
+      transform: scale(3);
+    }
+    #left-ad-container-mobile {
+      position: static !important;
+      transform: none !important;
+      width: 320px !important;
+      height: 50px !important;
+      margin: 10px auto !important;
+    }
 
-    #right-ad-container {
-      position: fixed;
+    #right-ad-container, #right-ad-container-mobile {
+      z-index: 1000;
       top: 50%;
       right: 0;
       transform: translateY(-50%);
-      z-index: 1000;
+    }
+    #right-ad-container {
+      position: fixed;
+    }
+    #right-ad-container-mobile {
+      position: static !important;
+      transform: none !important;
+      width: 320px !important;
+      height: 50px !important;
+      margin: 10px auto !important;
     }
 
-    #bottom-ad-container {
+    #bottom-ad-container, #bottom-ad-container-mobile {
       width: 728px;
       height: 90px;
-      margin: 20px auto 0 auto;
+      margin: 20px auto 40px auto;
       text-align: center;
     }
+    #bottom-ad-container-mobile {
+      width: 320px !important;
+      height: 50px !important;
+      margin: 10px auto !important;
+    }
 
-    /* Navbar positioning fixes */
     nav.navbar {
       position: relative;
     }
@@ -79,50 +103,78 @@
       margin-bottom: 0;
     }
 
-    /* Bottom translucent ad row */
-    #bottom-ad-row {
-      background: rgba(20, 20, 20, 0.95);
+    #single-bottom-banner, #single-bottom-banner-mobile {
+      width: 728px;
+      height: 90px;
+      margin: 20px auto;
+      text-align: center;
+    }
+    #single-bottom-banner-mobile {
+      width: 320px !important;
+      height: 50px !important;
+      margin: 10px auto !important;
+    }
+
+    #bottom-ad-row, #bottom-ad-row-mobile {
+      position: static;
+      background: rgba(20, 20, 20, 0.85);
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 12px;
       padding: 10px 0;
       box-sizing: border-box;
-      z-index: 1100;
       overflow-x: auto;
-      height: 100px; /* Adjust if needed */
-      margin-top: 40px;
+      flex-wrap: nowrap;
+      margin-top: 20px;
+    }
+    #bottom-ad-row-mobile {
+      flex-wrap: wrap !important;
+      padding: 10px !important;
+      gap: 10px !important;
+      width: 320px !important;
+      margin: 10px auto !important;
+      background: rgba(20,20,20,0.85);
     }
 
-    @media (max-width: 767px) {
+    #bottom-ad-row > *, #bottom-ad-row-mobile > * {
+      flex: 0 0 auto;
+    }
+
+    /* Mobile Hide & Show classes */
+    .mobileShow {display: none;}
+    .mobileHide {display: inline;}
+
+    @media only screen and (max-width: 767px) {
       #page-wrapper {
         flex-direction: column;
         align-items: center;
         position: static;
       }
 
-      #left-ad-container, #right-ad-container, #bottom-ad-container {
-        position: static !important;
-        transform: none !important;
-        margin: 10px auto !important;
-        width: 320px !important;
-        height: 50px !important;
+      /* Show mobile versions and hide desktop versions */
+      .mobileShow {
+        display: block !important;
+      }
+      .mobileHide {
+        display: none !important;
       }
 
-      /* On small screens, reposition the bg picker inside the flow */
-      #bg-picker-center {
-        position: static;
-        transform: none;
-        margin: 0 auto;
-        padding: 8px 0;
-        color: #ddd;
+      /* Override styles for mobile ad containers */
+      #left-ad-container {
+        display: none !important;
       }
-
+      #right-ad-container {
+        display: none !important;
+      }
+      #bottom-ad-container {
+        display: none !important;
+      }
+      #single-bottom-banner {
+        display: none !important;
+      }
       #bottom-ad-row {
-        height: auto;
-        flex-wrap: wrap;
-        padding: 10px;
-        gap: 10px;
+        display: none !important;
       }
     }
   </style>
@@ -130,7 +182,6 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid d-flex justify-content-between align-items-center">
-      <!-- Left nav links -->
       <ul class="navbar-nav flex-row">
         <li class="nav-item mx-2">
           <a class="nav-link" href="index.html"><i class="fas fa-list-ul"></i> Everyday To-Do</a>
@@ -139,45 +190,105 @@
           <a class="nav-link" href="grocery.html"><i class="fas fa-list-ul"></i> Grocery List</a>
         </li>
       </ul>
-
-      <!-- Right reset button -->
       <button onclick="resetLocalStorage()" class="btn btn-warning">
         Click to Reset
       </button>
     </div>
-
-    <!-- Center background picker absolutely centered -->
     <div id="bg-picker-center">
       <label for="bg-color-picker">Background:</label>
-      <input
-        type="color"
-        id="bg-color-picker"
-        title="Pick background color"
-        style="width: 35px; height: 25px; border: none; padding: 0; background: none; cursor: pointer;"
-      />
+      <input type="color" id="bg-color-picker" title="Pick background color" style="width: 35px; height: 25px; border: none; padding: 0; background: none; cursor: pointer;" />
     </div>
   </nav>
 
   <div id="page-wrapper">
-    <div id="left-ad-container">
+    <!-- Desktop Left Ad -->
+    <div id="left-ad-container" class="mobileHide">
       <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
       <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
     </div>
-
-    <div class="container text-center text-light">
-      <header>
-        <h1>Daily Living Grocery List</h1>
-        <p>This is my Organic Healthy Living Grocery List,<br />Designed for Wholefoods/Weaver Street.</p>
-        <p>Use This to Better Your Life And Routine.<br />Click Reset If you Have any Errors.</p>
-        <form class="add my-4">
-          <input class="form-control m-auto" type="text" name="add" />
-        </form>
-      </header>
-      <ul class="list-group todos mx-auto text-light"></ul>
+    <!-- Mobile Left Ad -->
+    <div id="left-ad-container-mobile" class="mobileShow">
+      <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+      <div id="container-c76ba32263dd5327ba120e38be87286b-mobile"></div>
     </div>
-  </div>
 
-  <div id="right-ad-container">
+     class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main">
+						<header>
+							<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
+							<h1>Jane Doe</h1>
+							<p>Senior Psychonautics Engineer</p>
+						</header>
+						<!--
+						<hr />
+						<h2>Extra Stuff!</h2>
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field">
+									<input type="text" name="name" id="name" placeholder="Name" />
+								</div>
+								<div class="field">
+									<input type="email" name="email" id="email" placeholder="Email" />
+								</div>
+								<div class="field">
+									<select name="department" id="department">
+										<option value="">Department</option>
+										<option value="sales">Sales</option>
+										<option value="tech">Tech Support</option>
+										<option value="null">/dev/null</option>
+									</select>
+								</div>
+								<div class="field">
+									<textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
+								</div>
+								<div class="field">
+									<input type="checkbox" id="human" name="human" /><label for="human">I'm a human</label>
+								</div>
+								<div class="field">
+									<label>But are you a robot?</label>
+									<input type="radio" id="robot_yes" name="robot" /><label for="robot_yes">Yes</label>
+									<input type="radio" id="robot_no" name="robot" /><label for="robot_no">No</label>
+								</div>
+							</div>
+							<ul class="actions special">
+								<li><a href="#" class="button">Get Started</a></li>
+							</ul>
+						</form>
+						<hr />
+						-->
+						<footer>
+							<ul class="icons">
+								<li><a href="#" class="fa-twitter">Twitter</a></li>
+								<li><a href="#" class="fa-instagram">Instagram</a></li>
+								<li><a href="#" class="fa-facebook">Facebook</a></li>
+							</ul>
+						</footer>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							<li>&copy; Jane Doe</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
+
+  <!-- Desktop Right Ad -->
+  <div id="right-ad-container" class="mobileHide">
     <script>
       atOptions = {
         'key': '1b104b58bb7ca585cc9a9995c94ecb40',
@@ -189,9 +300,23 @@
     </script>
     <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
-
-  <div id="bottom-ad-container">
+  <!-- Mobile Right Ad -->
+  <div id="right-ad-container-mobile" class="mobileShow">
     <script>
+      atOptions = {
+        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format': 'iframe',
+        'height': 50,
+        'width': 320,
+        'params': {}
+      };
+    </script>
+    <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+  </div>
+
+  <!-- Desktop Bottom Banner -->
+  <div id="bottom-ad-container" class="mobileHide">
+    <script type="text/javascript">
       atOptions = {
         'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
         'format': 'iframe',
@@ -200,17 +325,55 @@
         'params': {}
       };
     </script>
-    <script src="//www.highperformanceformat.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+  </div>
+  <!-- Mobile Bottom Banner -->
+  <div id="bottom-ad-container-mobile" class="mobileShow">
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format': 'iframe',
+        'height': 50,
+        'width': 320,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
   </div>
 
-   <!-- Footer -->
+  <!-- Original banner above footer (desktop) -->
+  <div id="single-bottom-banner" class="mobileHide">
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format': 'iframe',
+        'height': 90,
+        'width': 728,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+  </div>
+  <!-- Original banner above footer (mobile) -->
+  <div id="single-bottom-banner-mobile" class="mobileShow">
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format': 'iframe',
+        'height': 50,
+        'width': 320,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+  </div>
+
   <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; background: #222; position: relative; z-index: 10;">
     © 2025 TodoEveryday.click All rights reserved.
   </footer>
 
-  <!-- Translucent multi-ad container BELOW footer -->
-  <div id="bottom-ad-row">
-    <!-- Ad 2 -->
+  <!-- Translucent ad container below footer desktop -->
+  <div id="bottom-ad-row" class="mobileHide">
     <script type="text/javascript">
       atOptions = {
         'key': '1b104b58bb7ca585cc9a9995c94ecb40',
@@ -222,7 +385,6 @@
     </script>
     <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
 
-    <!-- Ad 3 -->
     <script type="text/javascript">
       atOptions = {
         'key': 'ee045765b78ee840108a8f527e35cd85',
@@ -234,19 +396,48 @@
     </script>
     <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
 
-    <!-- Ad 4 -->
     <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
-
-    <!-- Ad 5 -->
     <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
-
-    <!-- Ad 6 -->
     <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
     <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
 
-    <!-- Ad 7 -->
     <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013"
             style="border:none; width:160px; height:600px;"
+            scrolling="no"
+            title="Ad 7 iframe"></iframe>
+  </div>
+
+  <!-- Translucent ad container below footer mobile -->
+  <div id="bottom-ad-row-mobile" class="mobileShow">
+    <script type="text/javascript">
+      atOptions = {
+        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format': 'iframe',
+        'height': 50,
+        'width': 320,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'ee045765b78ee840108a8f527e35cd85',
+        'format': 'iframe',
+        'height': 60,
+        'width': 320,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
+
+    <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
+    <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
+    <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+    <div id="container-c76ba32263dd5327ba120e38be87286b-mobile"></div>
+
+    <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013"
+            style="border:none; width:320px; height:50px;"
             scrolling="no"
             title="Ad 7 iframe"></iframe>
   </div>
@@ -254,7 +445,15 @@
   <script>
     function resetLocalStorage() {
       localStorage.clear();
-      location.reload();
+
+      document.body.style.backgroundColor = '#222';
+      const bgPicker = document.getElementById('bg-color-picker');
+      if (bgPicker) bgPicker.value = '#222';
+
+      const todoList = document.querySelector('.todos');
+      if (todoList) todoList.innerHTML = '';
+
+      setTimeout(() => location.reload(), 50);
     }
 
     const bgPicker = document.getElementById('bg-color-picker');
@@ -276,7 +475,7 @@
     }
   </script>
 
-  <script src="index.js"></script>
+  <script src="grocery.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
