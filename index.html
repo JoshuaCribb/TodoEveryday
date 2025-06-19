@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1024" />
+  <!-- Change viewport to allow responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Todo List</title>
 
@@ -11,24 +12,146 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    body { background-color: #222; }
-    #page-wrapper { position: relative; display: flex; justify-content: center; align-items: flex-start; padding-top: 40px; }
-    .container { flex-grow: 1; max-width: 700px; z-index: 1; }
-    #left-ad-container, #right-ad-container, #single-bottom-banner, #bottom-ad-row { text-align: center; }
-    #left-ad-container { position: absolute; top: 100px; left: 0; width: 100px; height: 270px; transform: scale(3); transform-origin: top left; z-index: 1000; }
-    #right-ad-container { position: fixed; top: 50%; right: 0; transform: translateY(-50%); z-index: 1000; }
-    nav.navbar { position: relative; }
-    #bg-picker-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 8px; pointer-events: auto; user-select: none; color: #ddd; z-index: 1200; }
-    #bg-picker-center label { margin-bottom: 0; }
-    #single-bottom-banner { margin: 20px auto; width: 728px; height: 90px; }
-    #bottom-ad-row { position: static; background: rgba(20,20,20,0.85); display: flex; justify-content: center; align-items: center; gap: 12px; padding: 10px 0; box-sizing: border-box; overflow-x: auto; flex-wrap: nowrap; margin-top: 20px; }
-    #bottom-ad-row > * { flex: 0 0 auto; }
+    body {
+      background-color: #222;
+    }
 
-    .mobileShow { display: none; }
-    .mobileHide { display: inline; }
-    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-      .mobileShow { display: inline !important; }
-      .mobileHide { display: none !important; }
+    #page-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 40px;
+    }
+
+    .container {
+      flex-grow: 1;
+      max-width: 700px;
+      z-index: 1;
+    }
+
+    #left-ad-container {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100px;
+      height: 270px;
+      transform: scale(3);
+      transform-origin: top left;
+      z-index: 1000;
+    }
+
+    #right-ad-container {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 1000;
+    }
+
+    #bottom-ad-container {
+      width: 728px;
+      height: 90px;
+      margin: 20px auto 40px auto;
+      text-align: center;
+    }
+
+    nav.navbar {
+      position: relative;
+    }
+
+    #bg-picker-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      pointer-events: auto;
+      user-select: none;
+      color: #ddd;
+      z-index: 1200;
+    }
+
+    #bg-picker-center label {
+      margin-bottom: 0;
+    }
+
+    #single-bottom-banner {
+      width: 728px;
+      height: 90px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    #bottom-ad-row {
+      position: static; /* Not fixed */
+      background: rgba(20, 20, 20, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      box-sizing: border-box;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      margin-top: 20px;
+    }
+
+    #bottom-ad-row > * {
+      flex: 0 0 auto;
+    }
+
+    /* MOBILE / DESKTOP ad visibility classes */
+
+    .mobileShow {
+      display: none;
+    }
+
+    .mobileHide {
+      display: block;
+    }
+
+    @media (max-width: 480px) {
+      .mobileShow {
+        display: block !important;
+      }
+      .mobileHide {
+        display: none !important;
+      }
+
+      /* Adapt ad container sizes on mobile */
+      #left-ad-container, #right-ad-container, #bottom-ad-container, #single-bottom-banner {
+        position: static !important;
+        transform: none !important;
+        margin: 10px auto !important;
+        width: 320px !important;
+        height: 50px !important;
+        z-index: 1000;
+      }
+      #page-wrapper {
+        flex-direction: column;
+        align-items: center;
+        position: static;
+      }
+      #bg-picker-center {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+        padding: 8px 0;
+        color: #ddd;
+      }
+      #bottom-ad-row {
+        flex-wrap: wrap;
+        padding: 10px;
+        gap: 10px;
+      }
+      #single-bottom-banner {
+        width: 320px;
+        height: 50px;
+        margin: 10px auto;
+      }
     }
   </style>
 </head>
@@ -36,43 +159,42 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid d-flex justify-content-between align-items-center">
       <ul class="navbar-nav flex-row">
-        <li class="nav-item mx-2"><a class="nav-link" href="index.html"><i class="fas fa-list-ul"></i> Everyday To-Do</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="grocery.html"><i class="fas fa-list-ul"></i> Grocery List</a></li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="index.html"><i class="fas fa-list-ul"></i> Everyday To-Do</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="grocery.html"><i class="fas fa-list-ul"></i> Grocery List</a>
+        </li>
       </ul>
-      <button onclick="resetLocalStorage()" class="btn btn-warning">Click to Reset</button>
+      <button onclick="resetLocalStorage()" class="btn btn-warning">
+        Click to Reset
+      </button>
     </div>
     <div id="bg-picker-center">
       <label for="bg-color-picker">Background:</label>
-      <input type="color" id="bg-color-picker" style="width: 35px; height: 25px; border: none; background: none; cursor: pointer;" />
+      <input type="color" id="bg-color-picker" title="Pick background color" style="width: 35px; height: 25px; border: none; padding: 0; background: none; cursor: pointer;" />
     </div>
   </nav>
 
   <div id="page-wrapper">
     <div id="left-ad-container">
       <div class="mobileHide">
+        <!-- Desktop Left Ad -->
         <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
         <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
       </div>
       <div class="mobileShow">
-        <!-- Mobile 320x50 ad unit -->
-        <script type="text/javascript">
-          atOptions = {
-            'key': 'MOBILE_LEFT_KEY',
-            'format': 'iframe',
-            'height': 50,
-            'width': 320,
-            'params': {}
-          };
-        </script>
-        <script src="//fluffyaltarrecords.com/MOBILE_LEFT_KEY/invoke.js"></script>
+        <!-- Mobile Left Ad (example 320x50) -->
+        <!-- Replace with your actual mobile ad script here -->
+        <iframe src="https://via.placeholder.com/320x50?text=Mobile+Left+Ad" style="border:none; width:320px; height:50px;"></iframe>
       </div>
     </div>
 
     <div class="container text-center text-light">
       <header>
         <h1>Daily Living To-Do List</h1>
-        <p>This is my EveryDay To-Do List,<br>To improve myself daily.</p>
-        <p>Use This to Better Your Life And Routine.<br>Click Reset If you Have any Errors.</p>
+        <p>This is my EveryDay To-Do List,<br />To improve myself daily.</p>
+        <p>Use This to Better Your Life And Routine.<br />Click Reset If you Have any Errors.</p>
         <form class="add my-4">
           <input class="form-control m-auto" type="text" name="add" />
         </form>
@@ -95,22 +217,16 @@
       <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
     </div>
     <div class="mobileShow">
-      <script>
-        atOptions = {
-          'key': 'MOBILE_RIGHT_KEY',
-          'format': 'iframe',
-          'height': 50,
-          'width': 320,
-          'params': {}
-        };
-      </script>
-      <script src="//fluffyaltarrecords.com/MOBILE_RIGHT_KEY/invoke.js"></script>
+      <!-- Mobile Right Ad (320x50 example) -->
+      <!-- Replace with your mobile ad script -->
+      <iframe src="https://via.placeholder.com/320x50?text=Mobile+Right+Ad" style="border:none; width:320px; height:50px;"></iframe>
     </div>
   </div>
 
+  <!-- Original banner above footer -->
   <div id="single-bottom-banner">
     <div class="mobileHide">
-      <script>
+      <script type="text/javascript">
         atOptions = {
           'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
           'format': 'iframe',
@@ -119,34 +235,71 @@
           'params': {}
         };
       </script>
-      <script src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+      <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
     </div>
     <div class="mobileShow">
-      <script>
-        atOptions = {
-          'key': 'MOBILE_BOTTOM_KEY',
-          'format': 'iframe',
-          'height': 50,
-          'width': 320,
-          'params': {}
-        };
-      </script>
-      <script src="//fluffyaltarrecords.com/MOBILE_BOTTOM_KEY/invoke.js"></script>
+      <!-- Mobile Bottom Banner -->
+      <!-- Replace with your mobile bottom ad script -->
+      <iframe src="https://via.placeholder.com/320x50?text=Mobile+Bottom+Banner" style="border:none; width:320px; height:50px;"></iframe>
     </div>
   </div>
 
-  <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; background: #222;">
+  <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; background: #222; position: relative; z-index: 10;">
     © 2025 TodoEveryday.click All rights reserved.
   </footer>
+
+  <!-- Translucent ad container below footer -->
+  <div id="bottom-ad-row">
+    <div class="mobileHide">
+      <script type="text/javascript">
+        atOptions = {
+          'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+          'format': 'iframe',
+          'height': 600,
+          'width': 160,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+
+      <script type="text/javascript">
+        atOptions = {
+          'key': 'ee045765b78ee840108a8f527e35cd85',
+          'format': 'iframe',
+          'height': 60,
+          'width': 468,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
+
+      <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
+      <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
+      <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+      <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+
+      <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013"
+              style="border:none; width:160px; height:600px;"
+              scrolling="no"
+              title="Ad 7 iframe"></iframe>
+    </div>
+    <div class="mobileShow">
+      <!-- Mobile bottom row ad(s) -->
+      <iframe src="https://via.placeholder.com/320x50?text=Mobile+Bottom+Row+Ad" style="border:none; width:320px; height:50px;"></iframe>
+    </div>
+  </div>
 
   <script>
     function resetLocalStorage() {
       localStorage.clear();
+
       document.body.style.backgroundColor = '#222';
       const bgPicker = document.getElementById('bg-color-picker');
       if (bgPicker) bgPicker.value = '#222';
+
       const todoList = document.querySelector('.todos');
       if (todoList) todoList.innerHTML = '';
+
       setTimeout(() => location.reload(), 50);
     }
 
