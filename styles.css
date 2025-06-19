@@ -82,3 +82,16 @@ input[type="text"]:focus {
   transform-origin: top left;
   z-index: 1000;
 }
+@media (max-width: 767px) {
+  #left-ad-container,
+  #right-ad-container,
+  #bottom-ad-container {
+    position: static !important;    /* reset absolute/fixed positioning */
+    width: auto !important;         /* allow normal width */
+    height: auto !important;        /* allow normal height */
+    transform: none !important;     /* disable scaling */
+    margin: 10px auto !important;   /* center horizontally with vertical spacing */
+    display: block !important;      /* ensure visible */
+    z-index: 1000 !important;       /* keep on top */
+  }
+}
