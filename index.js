@@ -13,7 +13,7 @@ const defaultTodos = [
   { text: "Brush Your Teeth", completed: false },
   { text: "Practice Olive Oil Pulling (try for 15 minutes)", completed: false },
   { text: "Drink Alkaline Water", completed: false },
-  { text: "Drink a Fresh Shot of Olive oil", completed: false },
+  { text: "Drink a Fresh Shot of Olive Oil.", completed: false },
   { text: "Stretch Your Body and Remind yourself to Keep Good Posture", completed: false },
   { text: "No Granulated Sugar, No Processed foods. Ever", completed: false },
   { text: "Mew Throughout the day Continuously with other Jaw Exercises", completed: false },
