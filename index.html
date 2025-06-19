@@ -103,6 +103,16 @@
       flex: 0 0 auto;
     }
 
+    /* Mobile/desktop banner toggle CSS added here */
+    .mobileShow { display: none; }
+    .mobileHide { display: inline; }
+
+    /* Smartphone Portrait and Landscape */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) { 
+      .mobileShow { display: inline; }
+      .mobileHide { display: none; }
+    }
+
     @media (max-width: 767px) {
       #page-wrapper {
         flex-direction: column;
@@ -193,18 +203,35 @@
     <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
 
-  <!-- Original banner above footer -->
+  <!-- Bottom banner with mobile/desktop toggle wrappers -->
   <div id="single-bottom-banner">
-    <script type="text/javascript">
-      atOptions = {
-        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
-        'format': 'iframe',
-        'height': 90,
-        'width': 728,
-        'params': {}
-      };
-    </script>
-    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+    <div class="mobileShow">
+      <!-- Mobile banner code: 320x50 -->
+      <script type="text/javascript">
+        atOptions = {
+          'key': 'your_mobile_banner_key',
+          'format': 'iframe',
+          'height': 50,
+          'width': 320,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="//your-mobile-banner-url/invoke.js"></script>
+    </div>
+
+    <div class="mobileHide">
+      <!-- Desktop banner code: 728x90 -->
+      <script type="text/javascript">
+        atOptions = {
+          'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+          'format': 'iframe',
+          'height': 90,
+          'width': 728,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+    </div>
   </div>
 
   <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; background: #222; position: relative; z-index: 10;">
@@ -285,3 +312,4 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
+
