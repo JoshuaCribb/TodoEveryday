@@ -5,10 +5,6 @@
   <script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="false"></script>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Grocery List</title>
-
-  <!-- Force desktop viewport width -->
-  <meta name="viewport" content="width=1024" />
 
   <link
     rel="stylesheet"
@@ -21,9 +17,11 @@
     crossorigin="anonymous"
   />
   <link rel="stylesheet" href="styles.css" />
+  <title>Grocery List</title>
 
   <style>
-    #left-ad-container {
+
+  #left-ad-container {
       width: 100px;
       height: 270px;
       transform: scale(3);
@@ -32,6 +30,8 @@
       flex-shrink: 0;
     }
 
+
+    /* Make container flexible so it grows/shrinks nicely */
     .container {
       flex-grow: 1;
       max-width: 700px; /* adjust as needed */
@@ -45,13 +45,15 @@
       z-index: 1000;
     }
 
+    /* Bottom ad back to centered below content */
     #bottom-ad-container {
       width: 728px;
       height: 90px;
-      margin: 20px auto 40px auto;
+      margin: 20px auto 40px auto; /* centered horizontally */
       text-align: center;
     }
 
+    /* Background color picker fixed top-right */
     #bg-picker-container {
       position: fixed;
       top: 10px;
@@ -81,53 +83,71 @@
       padding: 0;
     }
 
-    /* Force ad containers visible on all screen sizes */
-    #left-ad-container,
-    #right-ad-container,
-    #bottom-ad-container {
-      display: block !important;
-      visibility: visible !important;
-      width: auto !important;
-      height: auto !important;
-      min-width: 100px;
-      min-height: 50px;
-    }
+    /* Mobile-friendly ad styles */
+    @media (max-width: 767px) {
+      #page-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
 
-    /* Always show navbar expanded (disable toggler) */
-    .navbar-collapse {
-      display: flex !important;
-      flex-basis: auto !important;
-    }
+      #left-ad-container {
+        width: 160px !important;
+        height: 25px !important;
+        transform: none !important;
+        margin: 10px auto !important;
+      }
 
-    .navbar-toggler {
-      display: none !important;
+      #right-ad-container {
+        position: static !important;
+        width: 320px !important;
+        height: 50px !important;
+        margin: 10px auto !important;
+        transform: none !important;
+      }
+
+      #bottom-ad-container {
+        width: 320px !important;
+        height: 50px !important;
+        margin: 10px auto 40px auto !important;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Navbar with links aligned left, no brand/title -->
+   <!-- Navbar with links aligned left, no brand/title -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="collapse navbar-collapse show" id="navbarNav">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="index.html" target="_blank">
+          <a class="nav-link" href="index.html" target="_blank" >
             <i class="fas fa-home"></i> Everyday To-Do
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="grocery.html" target="_blank">
+          <a class="nav-link" href="grocery.html" target="_blank" >
             <i class="fas fa-list-ul"></i> Grocery List
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" target="_blank">
+          <a class="nav-link" href=".html" target="_blank">
             <i class="fas fa-info-circle"></i> 3
           </a>
         </li>
       </ul>
     </div>
   </nav>
-
   <button onclick="resetLocalStorage()" class="btn btn-warning mb-4">
     Click to Reset
   </button>
@@ -137,19 +157,27 @@
     <input type="color" id="bg-color-picker" title="Pick background color" />
   </div>
 
-  <div id="page-wrapper" style="display: flex;">
+  <div id="page-wrapper">
     <div id="left-ad-container">
-      <script async data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+      <script async="async" data-cfasync="false" src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
       <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
     </div>
 
     <div class="container">
       <header class="text-center text-light my-4">
-        <h1 class="mb-4">Daily Living Grocery List</h1>
-        <label class="text-light">This is my Organic Healthy Living Grocery List,</label>
-        <label class="text-light">Designed for Wholefoods/Weaver Street.</label>
-        <label class="text-light">Use This to Better Your Life And Routine.</label>
-        <label class="text-light">Click Reset On Top Left If you Have any Errors.</label>
+        <h1 class="mb-4">Daily Living Grocery List</h1> 
+        <label class="text-light">
+          This is my Organic Healthy Living Grocery List, 
+        </label>
+        <label class="text-light">
+          Designed for Wholefoods/Weaver Street.
+        </label>
+        <label class="text-light">
+          Use This to Better Your Life And Routine.
+        </label>
+        <label class="text-light">
+          Click Reset On Top Left If you Have any Errors.
+        </label>
         <form class="add text-center my-4">
           <input class="form-control m-auto" type="text" name="add" />
         </form>
@@ -167,7 +195,11 @@
 
     // Background color picker logic
     const bgPicker = document.getElementById('bg-color-picker');
+
+    // Load saved background color from localStorage or default to #222
     document.body.style.backgroundColor = localStorage.getItem('bgColor') || '#222';
+
+    // Initialize color input value to current background color
     bgPicker.value = rgbToHex(window.getComputedStyle(document.body).backgroundColor);
 
     bgPicker.addEventListener('input', (e) => {
@@ -176,6 +208,7 @@
       localStorage.setItem('bgColor', color);
     });
 
+    // Helper function to convert rgb() to hex
     function rgbToHex(rgb) {
       const result = rgb.match(/\d+/g);
       if (!result) return '#222';
@@ -196,53 +229,36 @@
   <div id="right-ad-container">
     <script type="text/javascript">
       atOptions = {
-        key: "1b104b58bb7ca585cc9a9995c94ecb40",
-        format: "iframe",
-        height: 600,
-        width: 160,
-        params: {},
+        'key' : '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
       };
     </script>
-    <script
-      type="text/javascript"
-      src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"
-    ></script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
 
   <div id="bottom-ad-container">
     <script type="text/javascript">
       atOptions = {
-        key: "cb53e8ce5c40d13d1598b9aeba34b4d9",
-        format: "iframe",
-        height: 90,
-        width: 728,
-        params: {},
+        'key' : 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
       };
     </script>
-    <script
-      type="text/javascript"
-      src="//www.highperformanceformat.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"
-    ></script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
   </div>
 
-  <!-- New additional ad script -->
-  <script
-    type="text/javascript"
-    src="//pl26942549.profitableratecpm.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js"
-  ></script>
-
+  <!-- New additional ad script you asked to add -->
+  <script type='text/javascript' src='//pl26942549.profitableratecpm.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
   <!-- Footnote Section -->
-  <footer
-    style="
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-      padding: 20px 0;
-      border-top: 1px solid #ccc;
-      margin-top: 40px;
-    "
-  >
-    © 2025 TodoEveryday.click All rights reserved.<br />
-  </footer>
+<footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; margin-top: 40px;">
+  © 2025 TodoEveryday.click All rights reserved.<br>
+
+</footer>
+
 </body>
 </html>
