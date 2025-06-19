@@ -55,19 +55,30 @@
       text-align: center;
     }
 
-    #bg-picker-container {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 5px 10px;
-      border-radius: 5px;
-      z-index: 2000;
+    /* Navbar positioning fixes */
+    nav.navbar {
+      position: relative;
+    }
+
+    #bg-picker-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       display: flex;
       align-items: center;
       gap: 8px;
+      pointer-events: auto; /* keep input clickable */
+      user-select: none;
+      color: #ddd;
+      z-index: 1050;
     }
 
+    #bg-picker-center label {
+      margin-bottom: 0;
+    }
+
+    /* Responsive adjustments */
     @media (max-width: 767px) {
       #page-wrapper {
         flex-direction: column;
@@ -82,28 +93,48 @@
         width: 320px !important;
         height: 50px !important;
       }
+
+      /* On small screens, reposition the bg picker inside the flow */
+      #bg-picker-center {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+        padding: 8px 0;
+        color: #ddd;
+      }
     }
   </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <!-- Left nav links -->
+      <ul class="navbar-nav flex-row">
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="index.html"><i class="fas fa-list-ul"></i> Everyday To-Do</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="grocery.html"><i class="fas fa-list-ul"></i> Grocery List</a>
+        </li>
+      </ul>
+
+      <!-- Right reset button -->
+      <button onclick="resetLocalStorage()" class="btn btn-warning">
+        Click to Reset
       </button>
-      <div class="collapse navbar-collapse show" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-list-ul"></i> Everyday To-Do</a></li>
-          <li class="nav-item"><a class="nav-link" href="grocery.html"><i class="fas fa-list-ul"></i> Grocery List</a></li>
-        </ul>
-      </div>
+    </div>
+
+    <!-- Center background picker absolutely centered -->
+    <div id="bg-picker-center">
+      <label for="bg-color-picker">Background:</label>
+      <input
+        type="color"
+        id="bg-color-picker"
+        title="Pick background color"
+        style="width: 35px; height: 25px; border: none; padding: 0; background: none; cursor: pointer;"
+      />
     </div>
   </nav>
-
-  <div id="bg-picker-container">
-    <label for="bg-color-picker" class="text-light">Background:</label>
-    <input type="color" id="bg-color-picker" />
-  </div>
 
   <div id="page-wrapper">
     <div id="left-ad-container">
@@ -112,7 +143,6 @@
     </div>
 
     <div class="container text-center text-light">
-      <button onclick="resetLocalStorage()" class="btn btn-warning my-3">Click to Reset</button>
       <header>
         <h1>Daily Living Grocery List</h1>
         <p>This is my Organic Healthy Living Grocery List,<br />Designed for Wholefoods/Weaver Street.</p>

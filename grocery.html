@@ -55,6 +55,30 @@
       text-align: center;
     }
 
+    /* Navbar positioning fixes */
+    nav.navbar {
+      position: relative;
+    }
+
+    #bg-picker-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      pointer-events: auto; /* keep input clickable */
+      user-select: none;
+      color: #ddd;
+      z-index: 1050;
+    }
+
+    #bg-picker-center label {
+      margin-bottom: 0;
+    }
+
+    /* Responsive adjustments */
     @media (max-width: 767px) {
       #page-wrapper {
         flex-direction: column;
@@ -68,6 +92,15 @@
         margin: 10px auto !important;
         width: 320px !important;
         height: 50px !important;
+      }
+
+      /* On small screens, reposition the bg picker inside the flow */
+      #bg-picker-center {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+        padding: 8px 0;
+        color: #ddd;
       }
     }
   </style>
@@ -85,21 +118,21 @@
         </li>
       </ul>
 
-      <!-- Center background picker -->
-      <div class="d-flex align-items-center mx-auto">
-        <label for="bg-color-picker" class="text-light mb-0 mr-2" style="user-select:none;">Background:</label>
-        <input
-          type="color"
-          id="bg-color-picker"
-          title="Pick background color"
-          style="width: 35px; height: 25px; border: none; padding: 0; background: none; cursor: pointer;"
-        />
-      </div>
-
       <!-- Right reset button -->
       <button onclick="resetLocalStorage()" class="btn btn-warning">
         Click to Reset
       </button>
+    </div>
+
+    <!-- Center background picker absolutely centered -->
+    <div id="bg-picker-center">
+      <label for="bg-color-picker">Background:</label>
+      <input
+        type="color"
+        id="bg-color-picker"
+        title="Pick background color"
+        style="width: 35px; height: 25px; border: none; padding: 0; background: none; cursor: pointer;"
+      />
     </div>
   </nav>
 
