@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Force desktop layout on mobile by setting fixed width -->
-  <meta name="viewport" content="width=1024" />
+  <!-- Force desktop layout even on mobile -->
+  <meta name="viewport" content="width=1024, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Todo List</title>
 
@@ -86,7 +86,7 @@
     }
 
     #bottom-ad-row {
-      position: static; /* Not fixed, so it won't follow viewport */
+      position: static;
       background: rgba(20, 20, 20, 0.85);
       display: flex;
       justify-content: center;
@@ -103,41 +103,7 @@
       flex: 0 0 auto;
     }
 
-    @media (max-width: 767px) {
-      #page-wrapper {
-        flex-direction: column;
-        align-items: center;
-        position: static;
-      }
-
-      #left-ad-container, #right-ad-container, #bottom-ad-container {
-        position: static !important;
-        transform: none !important;
-        margin: 10px auto !important;
-        width: 320px !important;
-        height: 50px !important;
-      }
-
-      #bg-picker-center {
-        position: static;
-        transform: none;
-        margin: 0 auto;
-        padding: 8px 0;
-        color: #ddd;
-      }
-
-      #bottom-ad-row {
-        flex-wrap: wrap;
-        padding: 10px;
-        gap: 10px;
-      }
-
-      #single-bottom-banner {
-        width: 320px;
-        height: 50px;
-        margin: 10px auto;
-      }
-    }
+    /* Removed all @media queries to keep layout static */
   </style>
 </head>
 <body>
@@ -151,9 +117,7 @@
           <a class="nav-link" href="grocery.html"><i class="fas fa-list-ul"></i> Grocery List</a>
         </li>
       </ul>
-      <button onclick="resetLocalStorage()" class="btn btn-warning">
-        Click to Reset
-      </button>
+      <button onclick="resetLocalStorage()" class="btn btn-warning">Click to Reset</button>
     </div>
     <div id="bg-picker-center">
       <label for="bg-color-picker">Background:</label>
@@ -193,7 +157,6 @@
     <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
 
-  <!-- Original banner above footer -->
   <div id="single-bottom-banner">
     <script type="text/javascript">
       atOptions = {
@@ -211,7 +174,6 @@
     © 2025 TodoEveryday.click All rights reserved.
   </footer>
 
-  <!-- Translucent ad container below footer -->
   <div id="bottom-ad-row">
     <script type="text/javascript">
       atOptions = {
@@ -249,14 +211,11 @@
   <script>
     function resetLocalStorage() {
       localStorage.clear();
-
       document.body.style.backgroundColor = '#222';
       const bgPicker = document.getElementById('bg-color-picker');
       if (bgPicker) bgPicker.value = '#222';
-
       const todoList = document.querySelector('.todos');
       if (todoList) todoList.innerHTML = '';
-
       setTimeout(() => location.reload(), 50);
     }
 
