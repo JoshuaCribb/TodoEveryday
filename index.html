@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Use responsive viewport for mobile -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <!-- Force desktop layout on mobile by setting fixed width -->
+  <meta name="viewport" content="width=1024, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Todo List</title>
 
@@ -14,14 +14,13 @@
   <style>
     html, body {
       max-width: 1024px;
-      margin: 0 auto;
-      -webkit-text-size-adjust: 100%;
+      overflow-x: auto; /* Allow horizontal scrolling if needed */
+      -webkit-text-size-adjust: 100%; /* Prevent iOS font scaling */
       -ms-text-size-adjust: 100%;
     }
 
     body {
       background-color: #222;
-      overflow-x: hidden; /* avoid horizontal scroll unless necessary */
     }
 
     #page-wrapper {
@@ -44,7 +43,8 @@
       left: 0;
       width: 100px;
       height: 270px;
-      /* Removed transform scale for mobile friendliness */
+      transform: scale(3);
+      transform-origin: top left;
       z-index: 1000;
     }
 
@@ -53,8 +53,6 @@
       top: 50%;
       right: 0;
       transform: translateY(-50%);
-      width: 160px;
-      height: 600px;
       z-index: 1000;
     }
 
@@ -95,7 +93,7 @@
     }
 
     #bottom-ad-row {
-      position: static;
+      position: static; /* Not fixed, so it won't follow viewport */
       background: rgba(20, 20, 20, 0.85);
       display: flex;
       justify-content: center;
@@ -119,16 +117,11 @@
         position: static;
       }
 
-      /* Reset ad container positions and sizes for mobile */
       #left-ad-container, #right-ad-container, #bottom-ad-container {
         position: static !important;
         transform: none !important;
         margin: 10px auto !important;
         width: 320px !important;
-        height: 50px !important;
-      }
-
-      #right-ad-container {
         height: 50px !important;
       }
 
