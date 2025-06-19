@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Force desktop layout on mobile by setting fixed width -->
+  <meta name="viewport" content="width=1024" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Todo List</title>
 
@@ -85,7 +86,7 @@
     }
 
     #bottom-ad-row {
-      position: static;
+      position: static; /* Not fixed, so it won't follow viewport */
       background: rgba(20, 20, 20, 0.85);
       display: flex;
       justify-content: center;
@@ -192,6 +193,7 @@
     <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
 
+  <!-- Original banner above footer -->
   <div id="single-bottom-banner">
     <script type="text/javascript">
       atOptions = {
@@ -209,6 +211,7 @@
     © 2025 TodoEveryday.click All rights reserved.
   </footer>
 
+  <!-- Translucent ad container below footer -->
   <div id="bottom-ad-row">
     <script type="text/javascript">
       atOptions = {
@@ -243,7 +246,6 @@
             title="Ad 7 iframe"></iframe>
   </div>
 
-  <!-- ✅ FIXED SCRIPT -->
   <script>
     function resetLocalStorage() {
       localStorage.clear();
