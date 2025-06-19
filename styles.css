@@ -3,7 +3,14 @@ body {
   transition: background 0.3s ease;
 }
 
+#page-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
 .container {
+  flex-grow: 1;
   max-width: 800px;
 }
 
@@ -36,7 +43,7 @@ input[type="text"]:focus {
   position: fixed;
   top: 10px;
   right: 10px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   padding: 6px 10px;
   border-radius: 6px;
   display: flex;
@@ -56,4 +63,16 @@ input[type="text"]:focus {
   height: 28px;
   padding: 0;
   background: none;
+}
+
+/* 🟡 Adjusted left ad */
+#left-ad-container {
+  position: absolute;
+  top: 100px; /* pushes the ad down */
+  left: 0;
+  width: 100px;
+  height: 270px;
+  transform: scale(3);
+  transform-origin: top left;
+  z-index: 1000;
 }
