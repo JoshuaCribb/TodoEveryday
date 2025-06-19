@@ -7,6 +7,8 @@ const bgColorPicker = document.getElementById("bg-color-picker");
 
 // Default todos
 const defaultTodos = [
+  { text: "Absolutely NO Proccesed Foods. Ever.", completed: false },
+  { text: "Keep Good Posture and Physical Exertion/Movement ALL DAY.", completed: false },
   { text: "Wake up in Peace and gratitude (regardless of the scenario)", completed: false },
   { text: "Brush Your Teeth", completed: false },
   { text: "Practice Olive Oil Pulling (try for 15 minutes)", completed: false },

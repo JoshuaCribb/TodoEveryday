@@ -15,6 +15,11 @@ const defaultTodos = [
   { text: "Organic Beef Broth", completed: false },
   { text: "Pasture Raised Eggs", completed: false },
   { text: "Organic Local Honey", completed: false },
+  { text: "Celtic Salt", completed: false },
+  { text: "Organic Rice", completed: false },
+  { text: "Cold Pressed Olive Oil", completed: false },
+  { text: "Organic Pasture Raised Chicken", completed: false },
+  { text: "Organic Lettuce", completed: false },
 
 
 ];
