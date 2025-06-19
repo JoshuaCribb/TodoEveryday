@@ -3,6 +3,10 @@ body {
   transition: background 0.3s ease;
   margin: 0;
   padding: 0;
+  /* Force fixed width and horizontal scroll */
+  width: 1024px;
+  min-width: 1024px;
+  overflow-x: auto;
 }
 
 #page-wrapper {
@@ -11,12 +15,15 @@ body {
   justify-content: center;
   align-items: flex-start; /* ensures top alignment */
   padding-top: 40px; /* optional spacing from top */
+  width: 100%; /* full width of fixed body */
+  box-sizing: border-box;
 }
 
 .container {
   flex-grow: 1;
   max-width: 800px;
   z-index: 1; /* makes sure it's above background elements */
+  box-sizing: border-box;
 }
 
 input[type="text"],
@@ -82,16 +89,8 @@ input[type="text"]:focus {
   transform-origin: top left;
   z-index: 1000;
 }
+
+/* REMOVE or comment out the mobile media query so it doesn’t override */
 @media (max-width: 767px) {
-  #left-ad-container,
-  #right-ad-container,
-  #bottom-ad-container {
-    position: static !important;    /* reset absolute/fixed positioning */
-    width: auto !important;         /* allow normal width */
-    height: auto !important;        /* allow normal height */
-    transform: none !important;     /* disable scaling */
-    margin: 10px auto !important;   /* center horizontally with vertical spacing */
-    display: block !important;      /* ensure visible */
-    z-index: 1000 !important;       /* keep on top */
-  }
+  /* Empty to disable mobile styling */
 }
