@@ -8,7 +8,13 @@ const bgColorPicker = document.getElementById("bg-color-picker");
 // Default todos
 const defaultTodos = [
   { text: "5 Gallons+ of Alkaline Water, Preferably from the machine", completed: false },
-  { text: " Blank ", completed: false },
+  { text: "Grassfed Beef 3-7 Lbs", completed: false },
+  { text: "Organic Avocados", completed: false },
+  { text: "GrassFed Butter", completed: false },
+  { text: "Organic Blueberries", completed: false },
+  { text: "Organic Beef Broth", completed: false },
+  { text: "Pasture Raised Eggs", completed: false },
+  { text: "Organic Local Honey", completed: false },
 
 
 ];
