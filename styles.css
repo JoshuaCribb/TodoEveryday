@@ -36,7 +36,7 @@ input[type="text"]:focus {
   position: fixed;
   top: 10px;
   right: 10px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.5);
   padding: 6px 10px;
   border-radius: 6px;
   display: flex;
@@ -56,28 +56,4 @@ input[type="text"]:focus {
   height: 28px;
   padding: 0;
   background: none;
-}
-
-/* Fix: Force ad containers visible on all screen sizes */
-#left-ad-container,
-#right-ad-container,
-#bottom-ad-container {
-  display: block !important;
-  visibility: visible !important;
-  width: auto !important;
-  height: auto !important;
-  min-width: 100px; /* adjust as needed */
-  min-height: 50px;  /* adjust as needed */
-}
-
-/* Optional: Override media queries that hide ads on mobile */
-@media (max-width: 767px) {
-  #left-ad-container,
-  #right-ad-container,
-  #bottom-ad-container {
-    display: block !important;
-    visibility: visible !important;
-    width: auto !important;
-    height: auto !important;
-  }
 }
