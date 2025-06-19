@@ -1,29 +1,17 @@
 body {
   background: #66727a;
   transition: background 0.3s ease;
-  margin: 0;
-  padding: 0;
-  /* Force fixed width and horizontal scroll */
-  width: 1024px;
-  min-width: 1024px;
-  overflow-x: auto;
 }
 
 #page-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* ensures top alignment */
-  padding-top: 40px; /* optional spacing from top */
-  width: 100%; /* full width of fixed body */
-  box-sizing: border-box;
 }
 
 .container {
   flex-grow: 1;
   max-width: 800px;
-  z-index: 1; /* makes sure it's above background elements */
-  box-sizing: border-box;
 }
 
 input[type="text"],
@@ -66,7 +54,6 @@ input[type="text"]:focus {
 
 #bg-picker-container label {
   font-size: 0.9rem;
-  color: white;
 }
 
 #bg-color-picker {
@@ -78,19 +65,14 @@ input[type="text"]:focus {
   background: none;
 }
 
-/* Left ad lowered without affecting center content */
+/* 🟡 Adjusted left ad */
 #left-ad-container {
   position: absolute;
-  top: 100px; /* lowered 100px from top */
+  top: 100px; /* pushes the ad down */
   left: 0;
   width: 100px;
   height: 270px;
   transform: scale(3);
   transform-origin: top left;
   z-index: 1000;
-}
-
-/* REMOVE or comment out the mobile media query so it doesn’t override */
-@media (max-width: 767px) {
-  /* Empty to disable mobile styling */
 }
