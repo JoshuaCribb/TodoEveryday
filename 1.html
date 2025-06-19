@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://cmp.gatekeeperconsent.com/min.js" data-cfasync="false"></script>
-  <script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="false"></script>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
   <link
@@ -18,10 +17,8 @@
   />
   <link rel="stylesheet" href="styles.css" />
   <title>Grocery List</title>
-
   <style>
-
-  #left-ad-container {
+    #left-ad-container {
       width: 100px;
       height: 270px;
       transform: scale(3);
@@ -29,7 +26,6 @@
       margin-top: 10px; /* vertical align tweak */
       flex-shrink: 0;
     }
-
 
     /* Make container flexible so it grows/shrinks nicely */
     .container {
@@ -114,6 +110,29 @@
   </style>
 </head>
 <body>
+  <!-- Navbar with links aligned left, no brand/title -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse show" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html" target="_blank">
+            <i class="fas fa-list-ul"></i> Everyday To-Do
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="grocery.html" target="_blank">
+            <i class="fas fa-list-ul"></i> Grocery List
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" target="_blank">
+            <i class="fas fa-list-ul"></i> 3
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
   <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
   <script>
     window.ezstandalone = window.ezstandalone || {};
@@ -136,9 +155,9 @@
 
     <div class="container">
       <header class="text-center text-light my-4">
-        <h1 class="mb-4">Daily Living Grocery List</h1> 
+        <h1 class="mb-4">Daily Living Grocery List</h1>
         <label class="text-light">
-          This is my Organic Healthy Living Grocery List, 
+          This is my Organic Healthy Living Grocery List,
         </label>
         <label class="text-light">
           Designed for Wholefoods/Weaver Street.
@@ -225,16 +244,19 @@
 
   <!-- New additional ad script you asked to add -->
   <script type='text/javascript' src='//pl26942549.profitableratecpm.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
-  <!-- Footnote Section -->
-<footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; margin-top: 40px;">
-  © 2025 TodoEveryday.click All rights reserved.<br>
-  <span style="font-size: larger;">
-  <a href="index.html" target="_blank" rel="noopener noreferrer" style="color: #888; text-decoration: underline;">
-    To-Do Daily
-  </a>.
-</span>
 
-</footer>
+  <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; margin-top: 40px;">
+    © 2025 TodoEveryday.click All rights reserved.<br />
+    <span style="font-size: larger;">
+      <a href="grocery.html" target="_blank" rel="noopener noreferrer" style="color: #888; text-decoration: underline;">
+        Grocery List
+      </a>.
+    </span>
+  </footer>
 
+  <!-- Bootstrap JS + dependencies for navbar toggling -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
