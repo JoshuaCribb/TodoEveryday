@@ -7,6 +7,7 @@ const bgColorPicker = document.getElementById("bg-color-picker");
 
 // Default todos
 const defaultTodos = [
+  { text: "Absolutely NO Proccesed Foods.", completed: false },
   { text: "5 Gallons+ of Alkaline Water, Preferably from the machine", completed: false },
   { text: "Grassfed Beef 3-7 Lbs", completed: false },
   { text: "Organic Avocados", completed: false },
