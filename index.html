@@ -14,6 +14,9 @@
   <style>
     body {
       background-color: #222;
+      max-width: 1024px;
+      margin: 0 auto;
+      overflow-x: auto; /* allow desktop scrolling on mobile */
     }
 
     #page-wrapper {
@@ -30,6 +33,7 @@
       z-index: 1;
     }
 
+    /* Desktop-sized ads always visible */
     #left-ad-container {
       position: absolute;
       top: 100px;
@@ -42,18 +46,14 @@
     }
 
     #right-ad-container {
-      position: fixed;
-      top: 50%;
+      position: absolute;
+      top: 100px;
       right: 0;
-      transform: translateY(-50%);
+      width: 100px;
+      height: 270px;
+      transform: scale(3);
+      transform-origin: top right;
       z-index: 1000;
-    }
-
-    #bottom-ad-container {
-      width: 728px;
-      height: 90px;
-      margin: 20px auto 40px auto;
-      text-align: center;
     }
 
     nav.navbar {
@@ -74,10 +74,7 @@
       z-index: 1200;
     }
 
-    #bg-picker-center label {
-      margin-bottom: 0;
-    }
-
+    /* Banner and multi-ad row */
     #single-bottom-banner {
       width: 728px;
       height: 90px;
@@ -87,7 +84,7 @@
 
     #bottom-ad-row {
       position: static;
-      background: rgba(20, 20, 20, 0.85);
+      background: rgba(20,20,20,0.85);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -102,26 +99,20 @@
     #bottom-ad-row > * {
       flex: 0 0 auto;
     }
-
-    /* Removed all @media queries to keep layout static */
   </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid d-flex justify-content-between align-items-center">
       <ul class="navbar-nav flex-row">
-        <li class="nav-item mx-2">
-          <a class="nav-link" href="index.html"><i class="fas fa-list-ul"></i> Everyday To-Do</a>
-        </li>
-        <li class="nav-item mx-2">
-          <a class="nav-link" href="grocery.html"><i class="fas fa-list-ul"></i> Grocery List</a>
-        </li>
+        <li class="nav-item mx-2"><a class="nav-link" href="index.html"><i class="fas fa-list-ul"></i> Everyday To-Do</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="grocery.html"><i class="fas fa-list-ul"></i> Grocery List</a></li>
       </ul>
       <button onclick="resetLocalStorage()" class="btn btn-warning">Click to Reset</button>
     </div>
     <div id="bg-picker-center">
       <label for="bg-color-picker">Background:</label>
-      <input type="color" id="bg-color-picker" title="Pick background color" style="width: 35px; height: 25px; border: none; padding: 0; background: none; cursor: pointer;" />
+      <input type="color" id="bg-color-picker" title="Pick background color" style="width:35px;height:25px;border:none;padding:0;background:none;cursor:pointer;" />
     </div>
   </nav>
 
@@ -134,107 +125,79 @@
     <div class="container text-center text-light">
       <header>
         <h1>Daily Living To-Do List</h1>
-        <p>This is my EveryDay To-Do List,<br />To improve myself daily.</p>
-        <p>Use This to Better Your Life And Routine.<br />Click Reset If you Have any Errors.</p>
+        <p>This is my EveryDay To-Do List,<br/>To improve myself daily.</p>
+        <p>Use This to Better Your Life And Routine.<br/>Click Reset If you Have any Errors.</p>
         <form class="add my-4">
           <input class="form-control m-auto" type="text" name="add" />
         </form>
       </header>
       <ul class="list-group todos mx-auto text-light"></ul>
     </div>
+
+    <div id="right-ad-container">
+      <script>
+        atOptions = { key:'1b104b58bb7ca585cc9a9995c94ecb40', format:'iframe', height:600, width:160, params:{} };
+      </script>
+      <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+    </div>
   </div>
 
-  <div id="right-ad-container">
-    <script>
-      atOptions = {
-        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
-        'format': 'iframe',
-        'height': 600,
-        'width': 160,
-        'params': {}
-      };
-    </script>
-    <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
-  </div>
-
+  <!-- Single large banner above footer -->
   <div id="single-bottom-banner">
-    <script type="text/javascript">
-      atOptions = {
-        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
-        'format': 'iframe',
-        'height': 90,
-        'width': 728,
-        'params': {}
-      };
+    <script>
+      atOptions = { key:'cb53e8ce5c40d13d1598b9aeba34b4d9', format:'iframe', height:90, width:728, params:{} };
     </script>
-    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+    <script src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
   </div>
 
-  <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; background: #222; position: relative; z-index: 10;">
+  <footer style="text-align:center;font-size:14px;color:#888;padding:20px 0;border-top:1px solid #ccc;background:#222;position:relative;z-index:10;">
     © 2025 TodoEveryday.click All rights reserved.
   </footer>
 
+  <!-- Translucent multi-ad container below footer -->
   <div id="bottom-ad-row">
-    <script type="text/javascript">
-      atOptions = {
-        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
-        'format': 'iframe',
-        'height': 600,
-        'width': 160,
-        'params': {}
-      };
+    <script>
+      atOptions = { key:'1b104b58bb7ca585cc9a9995c94ecb40', format:'iframe', height:600, width:160, params:{} };
     </script>
-    <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+    <script src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
 
-    <script type="text/javascript">
-      atOptions = {
-        'key': 'ee045765b78ee840108a8f527e35cd85',
-        'format': 'iframe',
-        'height': 60,
-        'width': 468,
-        'params': {}
-      };
+    <script>
+      atOptions = { key:'ee045765b78ee840108a8f527e35cd85', format:'iframe', height:60, width:468, params:{} };
     </script>
-    <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
+    <script src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
 
-    <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
-    <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
-    <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+    <script src="//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js"></script>
+    <script src="//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js"></script>
+
+    <script async data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
     <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
 
-    <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013"
-            style="border:none; width:160px; height:600px;"
-            scrolling="no"
-            title="Ad 7 iframe"></iframe>
+    <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013" style="border:none;width:160px;height:600px;" scrolling="no" title="Ad 7"></iframe>
   </div>
 
   <script>
     function resetLocalStorage() {
       localStorage.clear();
       document.body.style.backgroundColor = '#222';
-      const bgPicker = document.getElementById('bg-color-picker');
-      if (bgPicker) bgPicker.value = '#222';
-      const todoList = document.querySelector('.todos');
-      if (todoList) todoList.innerHTML = '';
+      const bg = document.getElementById('bg-color-picker');
+      if (bg) bg.value = '#222';
+      const list = document.querySelector('.todos');
+      if (list) list.innerHTML = '';
       setTimeout(() => location.reload(), 50);
     }
 
-    const bgPicker = document.getElementById('bg-color-picker');
+    const picker = document.getElementById('bg-color-picker');
     document.body.style.backgroundColor = localStorage.getItem('bgColor') || '#222';
-    bgPicker.value = rgbToHex(getComputedStyle(document.body).backgroundColor);
+    if (picker) picker.value = rgbToHex(getComputedStyle(document.body).backgroundColor);
 
-    bgPicker.addEventListener('input', e => {
+    if (picker) picker.addEventListener('input', e => {
       document.body.style.backgroundColor = e.target.value;
       localStorage.setItem('bgColor', e.target.value);
     });
 
     function rgbToHex(rgb) {
-      const result = rgb.match(/\d+/g);
-      if (!result) return '#222';
-      return '#' + result.map(x => {
-        const hex = parseInt(x).toString(16);
-        return hex.length === 1 ? '0' + hex : hex;
-      }).join('');
+      const res = rgb.match(/\d+/g);
+      return '#' + res.map(x => (parseInt(x).toString(16).padStart(2,'0'))).join('');
     }
   </script>
 
