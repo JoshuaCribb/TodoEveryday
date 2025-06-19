@@ -13,7 +13,7 @@
   <style>
     body {
       background-color: #222;
-      padding-bottom: 110px; /* Space for bottom ads */
+      /* Removed padding-bottom as no fixed bottom ads */
     }
 
     #page-wrapper {
@@ -52,7 +52,7 @@
     #bottom-ad-container {
       width: 728px;
       height: 90px;
-      margin: 20px auto 0 auto;
+      margin: 20px auto 40px auto;
       text-align: center;
     }
 
@@ -69,7 +69,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      pointer-events: auto;
+      pointer-events: auto; /* keep input clickable */
       user-select: none;
       color: #ddd;
       z-index: 1200;
@@ -79,19 +79,31 @@
       margin-bottom: 0;
     }
 
-    /* Bottom translucent ad row */
+    /* Large single banner above footer */
+    #single-bottom-banner {
+      width: 728px;
+      height: 90px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    /* Translucent multi-ad container BELOW footer */
     #bottom-ad-row {
-      background: rgba(20, 20, 20, 0.95);
+      position: static;
+      background: rgba(20, 20, 20, 0.85);
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 12px;
       padding: 10px 0;
       box-sizing: border-box;
-      z-index: 1100;
       overflow-x: auto;
-      height: 100px; /* Adjust if needed */
-      margin-top: 40px;
+      flex-wrap: nowrap;
+      margin-top: 20px;
+    }
+
+    #bottom-ad-row > * {
+      flex: 0 0 auto;
     }
 
     @media (max-width: 767px) {
@@ -119,10 +131,15 @@
       }
 
       #bottom-ad-row {
-        height: auto;
         flex-wrap: wrap;
         padding: 10px;
         gap: 10px;
+      }
+
+      #single-bottom-banner {
+        width: 320px;
+        height: 50px;
+        margin: 10px auto;
       }
     }
   </style>
