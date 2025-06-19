@@ -13,7 +13,7 @@
   <style>
     body {
       background-color: #222;
-      margin-bottom: 120px; /* space for fixed bottom ad row */
+      margin-bottom: 0; /* remove extra bottom space */
     }
 
     #page-wrapper {
@@ -49,13 +49,9 @@
       z-index: 1000;
     }
 
-    /* Remove previous single bottom ad container */
-
-    /* New bottom fixed container for all ads */
+    /* Changed from fixed to relative so it scrolls with content */
     #bottom-ad-row {
-      position: fixed;
-      bottom: 0;
-      left: 0;
+      position: relative;
       width: 100%;
       background: rgba(20, 20, 20, 0.95);
       display: flex;
@@ -66,38 +62,8 @@
       box-sizing: border-box;
       z-index: 1100;
       overflow-x: auto;
+      margin-bottom: 10px; /* space above footer */
     }
-
-    /* Each ad box */
-    .ad-box {
-      flex: 0 0 auto;
-      background: #111;
-      border: 1px solid #444;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 4px;
-      border-radius: 4px;
-    }
-
-    /* Specific ad sizes */
-    .ad-728x90 {
-      width: 728px;
-      height: 90px;
-    }
-    .ad-160x600 {
-      width: 160px;
-      height: 600px;
-    }
-    .ad-468x60 {
-      width: 468px;
-      height: 60px;
-    }
-    .ad-300x250 {
-      width: 300px;
-      height: 250px;
-    }
-    /* Add sizes for any other dimensions as needed */
 
     /* Navbar positioning fixes */
     nav.navbar {
@@ -137,6 +103,12 @@
         height: 50px !important;
       }
 
+      #bottom-ad-row {
+        width: 320px;
+        height: 50px;
+        margin: 10px auto 10px auto;
+      }
+
       /* On small screens, reposition the bg picker inside the flow */
       #bg-picker-center {
         position: static;
@@ -144,12 +116,6 @@
         margin: 0 auto 10px auto;
         padding: 8px 0;
         color: #ddd;
-      }
-
-      #bottom-ad-row {
-        flex-wrap: nowrap;
-        overflow-x: scroll;
-        padding: 5px 0;
       }
     }
   </style>
@@ -217,74 +183,62 @@
     <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
 
-  <!-- New bottom ads row container with all 7 ads -->
-  <div id="bottom-ad-row" aria-label="Advertisement banner row">
-    <!-- Ad 1: 728x90 -->
-    <div class="ad-box ad-728x90">
-      <script type="text/javascript">
-        atOptions = {
-          'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
-          'format': 'iframe',
-          'height': 90,
-          'width': 728,
-          'params': {}
-        };
-      </script>
-      <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
-    </div>
+  <!-- Bottom ad row container with all 7 ads aligned in a row -->
+  <div id="bottom-ad-row">
+    <!-- Ad 1 -->
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format': 'iframe',
+        'height': 90,
+        'width': 728,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
 
-    <!-- Ad 2: 160x600 -->
-    <div class="ad-box ad-160x600">
-      <script type="text/javascript">
-        atOptions = {
-          'key': '1b104b58bb7ca585cc9a9995c94ecb40',
-          'format': 'iframe',
-          'height': 600,
-          'width': 160,
-          'params': {}
-        };
-      </script>
-      <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
-    </div>
+    <!-- Ad 2 -->
+    <script type="text/javascript">
+      atOptions = {
+        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format': 'iframe',
+        'height': 600,
+        'width': 160,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
 
-    <!-- Ad 3: 468x60 -->
-    <div class="ad-box ad-468x60">
-      <script type="text/javascript">
-        atOptions = {
-          'key': 'ee045765b78ee840108a8f527e35cd85',
-          'format': 'iframe',
-          'height': 60,
-          'width': 468,
-          'params': {}
-        };
-      </script>
-      <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
-    </div>
+    <!-- Ad 3 -->
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'ee045765b78ee840108a8f527e35cd85',
+        'format': 'iframe',
+        'height': 60,
+        'width': 468,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
 
-    <!-- Ad 4: 300x250 example (using your container ad, scaled to 300x250) -->
-    <div class="ad-box" style="width:300px; height:250px;">
-      <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-      <div id="container-c76ba32263dd5327ba120e38be87286b" style="width:300px; height:250px;"></div>
-    </div>
+    <!-- Ad 4 -->
+    <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
 
-    <!-- Ad 5: External script 1 -->
-    <div class="ad-box" style="width:300px; height:100px;">
-      <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
-    </div>
+    <!-- Ad 5 -->
+    <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
 
-    <!-- Ad 6: External script 2 -->
-    <div class="ad-box" style="width:300px; height:100px;">
-      <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
-    </div>
+    <!-- Ad 6 -->
+    <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+    <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
 
-    <!-- Ad 7: External script 3 -->
-    <div class="ad-box" style="width:300px; height:100px;">
-      <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-      <!-- Note: container div repeated from ad4, but IDs are same so will only work once per page; consider modifying IDs if needed -->
-    </div>
+    <!-- Ad 7: External link, embedded below -->
+    <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013" 
+            style="border:none; width:160px; height:600px;" 
+            scrolling="no" 
+            title="Ad 7 iframe"></iframe>
   </div>
 
-  <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; margin-top: 40px;">
+  <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; margin-top: 10px;">
     © 2025 TodoEveryday.click All rights reserved.
   </footer>
 
