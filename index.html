@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Change viewport to allow responsiveness -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Force desktop layout on mobile by setting fixed width -->
+  <meta name="viewport" content="width=1024" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Todo List</title>
 
@@ -86,7 +86,7 @@
     }
 
     #bottom-ad-row {
-      position: static; /* Not fixed */
+      position: static; /* Not fixed, so it won't follow viewport */
       background: rgba(20, 20, 20, 0.85);
       display: flex;
       justify-content: center;
@@ -103,38 +103,21 @@
       flex: 0 0 auto;
     }
 
-    /* MOBILE / DESKTOP ad visibility classes */
-
-    .mobileShow {
-      display: none;
-    }
-
-    .mobileHide {
-      display: block;
-    }
-
-    @media (max-width: 480px) {
-      .mobileShow {
-        display: block !important;
-      }
-      .mobileHide {
-        display: none !important;
-      }
-
-      /* Adapt ad container sizes on mobile */
-      #left-ad-container, #right-ad-container, #bottom-ad-container, #single-bottom-banner {
-        position: static !important;
-        transform: none !important;
-        margin: 10px auto !important;
-        width: 320px !important;
-        height: 50px !important;
-        z-index: 1000;
-      }
+    @media (max-width: 767px) {
       #page-wrapper {
         flex-direction: column;
         align-items: center;
         position: static;
       }
+
+      #left-ad-container, #right-ad-container, #bottom-ad-container {
+        position: static !important;
+        transform: none !important;
+        margin: 10px auto !important;
+        width: 320px !important;
+        height: 50px !important;
+      }
+
       #bg-picker-center {
         position: static;
         transform: none;
@@ -142,11 +125,13 @@
         padding: 8px 0;
         color: #ddd;
       }
+
       #bottom-ad-row {
         flex-wrap: wrap;
         padding: 10px;
         gap: 10px;
       }
+
       #single-bottom-banner {
         width: 320px;
         height: 50px;
@@ -178,16 +163,8 @@
 
   <div id="page-wrapper">
     <div id="left-ad-container">
-      <div class="mobileHide">
-        <!-- Desktop Left Ad -->
-        <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-        <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
-      </div>
-      <div class="mobileShow">
-        <!-- Mobile Left Ad (example 320x50) -->
-        <!-- Replace with your actual mobile ad script here -->
-        <iframe src="https://via.placeholder.com/320x50?text=Mobile+Left+Ad" style="border:none; width:320px; height:50px;"></iframe>
-      </div>
+      <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+      <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
     </div>
 
     <div class="container text-center text-light">
@@ -204,44 +181,30 @@
   </div>
 
   <div id="right-ad-container">
-    <div class="mobileHide">
-      <script>
-        atOptions = {
-          'key': '1b104b58bb7ca585cc9a9995c94ecb40',
-          'format': 'iframe',
-          'height': 600,
-          'width': 160,
-          'params': {}
-        };
-      </script>
-      <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
-    </div>
-    <div class="mobileShow">
-      <!-- Mobile Right Ad (320x50 example) -->
-      <!-- Replace with your mobile ad script -->
-      <iframe src="https://via.placeholder.com/320x50?text=Mobile+Right+Ad" style="border:none; width:320px; height:50px;"></iframe>
-    </div>
+    <script>
+      atOptions = {
+        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format': 'iframe',
+        'height': 600,
+        'width': 160,
+        'params': {}
+      };
+    </script>
+    <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
 
   <!-- Original banner above footer -->
   <div id="single-bottom-banner">
-    <div class="mobileHide">
-      <script type="text/javascript">
-        atOptions = {
-          'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
-          'format': 'iframe',
-          'height': 90,
-          'width': 728,
-          'params': {}
-        };
-      </script>
-      <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
-    </div>
-    <div class="mobileShow">
-      <!-- Mobile Bottom Banner -->
-      <!-- Replace with your mobile bottom ad script -->
-      <iframe src="https://via.placeholder.com/320x50?text=Mobile+Bottom+Banner" style="border:none; width:320px; height:50px;"></iframe>
-    </div>
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
+        'format': 'iframe',
+        'height': 90,
+        'width': 728,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
   </div>
 
   <footer style="text-align: center; font-size: 14px; color: #888; padding: 20px 0; border-top: 1px solid #ccc; background: #222; position: relative; z-index: 10;">
@@ -250,43 +213,37 @@
 
   <!-- Translucent ad container below footer -->
   <div id="bottom-ad-row">
-    <div class="mobileHide">
-      <script type="text/javascript">
-        atOptions = {
-          'key': '1b104b58bb7ca585cc9a9995c94ecb40',
-          'format': 'iframe',
-          'height': 600,
-          'width': 160,
-          'params': {}
-        };
-      </script>
-      <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+    <script type="text/javascript">
+      atOptions = {
+        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format': 'iframe',
+        'height': 600,
+        'width': 160,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
 
-      <script type="text/javascript">
-        atOptions = {
-          'key': 'ee045765b78ee840108a8f527e35cd85',
-          'format': 'iframe',
-          'height': 60,
-          'width': 468,
-          'params': {}
-        };
-      </script>
-      <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'ee045765b78ee840108a8f527e35cd85',
+        'format': 'iframe',
+        'height': 60,
+        'width': 468,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
 
-      <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
-      <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
-      <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-      <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+    <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
+    <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
+    <script async="async" data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+    <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
 
-      <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013"
-              style="border:none; width:160px; height:600px;"
-              scrolling="no"
-              title="Ad 7 iframe"></iframe>
-    </div>
-    <div class="mobileShow">
-      <!-- Mobile bottom row ad(s) -->
-      <iframe src="https://via.placeholder.com/320x50?text=Mobile+Bottom+Row+Ad" style="border:none; width:320px; height:50px;"></iframe>
-    </div>
+    <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013"
+            style="border:none; width:160px; height:600px;"
+            scrolling="no"
+            title="Ad 7 iframe"></iframe>
   </div>
 
   <script>
