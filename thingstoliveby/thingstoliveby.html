@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=2048, user-scalable=no" />
+  <!-- Proper viewport for responsive behavior -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Things To Live By</title>
 
@@ -10,12 +12,24 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
   <style>
+    html,
     body {
-      background-color: #222;
       margin: 0;
       padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background-color: #222;
       color: #fff;
       font-family: Arial, sans-serif;
+    }
+
+    /* Wrap all content in this container */
+    #rotated-container {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      box-sizing: border-box;
     }
 
     .slideshow {
@@ -137,6 +151,7 @@
       display: none;
     }
 
+    /* MOBILE styles */
     @media only screen and (max-width: 767px) {
       .mobileShow {
         display: block !important;
@@ -168,23 +183,27 @@
         margin: 10px 15px 30px 15px !important;
         text-align: center !important;
       }
+
       .text--main {
         font-size: 28px !important;
       }
+
       .text--sub {
         font-size: 18px !important;
       }
 
       /* ROTATE entire page 90deg on mobile portrait */
-      body {
-        transform: rotate(90deg);
-        transform-origin: left top;
-        width: 100vh;
-        height: 100vw;
-        overflow-x: hidden;
-        position: absolute;
+      #rotated-container {
+        position: fixed;
         top: 100%;
         left: 0;
+        width: 100vh;
+        height: 100vw;
+        transform: rotate(90deg);
+        transform-origin: top left;
+        overflow-x: hidden;
+        background-color: #222;
+        z-index: 9999;
       }
     }
 
@@ -202,135 +221,57 @@
 </head>
 
 <body>
-
-  <header>
-    <div class="header">
-      <div class="header-primary">
-        <a href="../index.html" class="header-home">To-Do EveryDay</a>
-        <a href="../grocery.html" class="header-contact">Grocery List</a>
-        <a href="thingstoliveby.html" class="header-pages">Things To Live By</a>
+  <div id="rotated-container">
+    <header>
+      <div class="header">
+        <div class="header-primary">
+          <a href="../index.html" class="header-home">To-Do EveryDay</a>
+          <a href="../grocery.html" class="header-contact">Grocery List</a>
+          <a href="thingstoliveby.html" class="header-pages">Things To Live By</a>
+        </div>
+        <div class="heading-secondary">Things To Live By</div>
+        <div class="navigation">
+          <button aria-label="Toggle Navigation" class="nav-button">New Quote</button>
+        </div>
       </div>
-      <div class="heading-secondary">Things To Live By</div>
-      <div class="navigation">
-        <button aria-label="Toggle Navigation" class="nav-button">New Quote</button>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- Mobile Left Ad -->
-  <div id="left-ad-container-mobile" class="mobileShow">
-    <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-    <div id="container-c76ba32263dd5327ba120e38be87286b-mobile"></div>
-  </div>
-
-  <!-- Mobile Right Ad -->
-  <div id="right-ad-container-mobile" class="mobileShow">
-    <script>
-      atOptions = {
-        'key': '1b104b58bb7ca585ccb40',
-        'format': 'iframe',
-        'height': 50,
-        'width': 320,
-        'params': {}
-      };
-    </script>
-    <script src="//www.highperformanceformat.com/1b104b58bb7ca585ccb40/invoke.js"></script>
-  </div>
-
-  <div class="slideshow">
-    <figure id="slideshow-container"></figure>
-  </div>
-
-  <div class="text">
-    <span class="text--main" id="quote-main">Quote Loading...</span>
-    <span class="text--sub" id="quote-sub"></span>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 TodoEveryday.click All rights reserved.
-  </footer>
-
-  <!-- Desktop ads below footer -->
-  <div id="bottom-ad-row" class="mobileHide">
-    <script type="text/javascript">
-      atOptions = {
-        'key': '1b104b58bb7ca585ccb40',
-        'format': 'iframe',
-        'height': 600,
-        'width': 160,
-        'params': {}
-      };
-    </script>
-    <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585ccb40/invoke.js"></script>
-
-    <script type="text/javascript">
-      atOptions = {
-        'key': 'ee045765b78ee840108a8f527e35cd85',
-        'format': 'iframe',
-        'height': 60,
-        'width': 468,
-        'params': {}
-      };
-    </script>
-    <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
-
-    <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
-    <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
-    <script async data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-    <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
-
-    <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013"
-      style="border:none; width:160px; height:600px;"
-      scrolling="no"
-      title="Ad 7 iframe"></iframe>
-  </div>
-
-  <!-- Mobile ads below footer -->
-  <div id="bottom-ad-row-mobile" class="mobileShow"
-    style="background: rgba(20, 20, 20, 0.85); display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px; margin: 10px auto; width: 320px;">
-    <script type="text/javascript">
-      atOptions = {
-        'key': '1b104b58bb7ca585ccb40',
-        'format': 'iframe',
-        'height': 50,
-        'width': 320,
-        'params': {}
-      };
-    </script>
-    <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585ccb40/invoke.js"></script>
-
-    <script type="text/javascript">
-      atOptions = {
-        'key': 'ee045765b78ee840108a8f527e35cd85',
-        'format': 'iframe',
-        'height': 60,
-        'width': 320,
-        'params': {}
-      };
-    </script>
-    <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
-
-    <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
-    <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
-    <script async data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-    <div id="container-c76ba32263dd5327ba120e38be87286b-mobile"></div>
-
-    <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013"
-      style="border:none; width:320px; height:50px;"
-      scrolling="no"
-      title="Ad 7 iframe"></iframe>
-  </div>
-
-  <!-- Left and Right Desktop Ads BELOW existing bottom ads -->
-  <div class="left-right-ad-row mobileHide">
-    <div id="left-ad-container">
+    <!-- Mobile Left Ad -->
+    <div id="left-ad-container-mobile" class="mobileShow">
       <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
-      <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+      <div id="container-c76ba32263dd5327ba120e38be87286b-mobile"></div>
     </div>
 
-    <div id="right-ad-container">
+    <!-- Mobile Right Ad -->
+    <div id="right-ad-container-mobile" class="mobileShow">
       <script>
+        atOptions = {
+          'key': '1b104b58bb7ca585ccb40',
+          'format': 'iframe',
+          'height': 50,
+          'width': 320,
+          'params': {}
+        };
+      </script>
+      <script src="//www.highperformanceformat.com/1b104b58bb7ca585ccb40/invoke.js"></script>
+    </div>
+
+    <div class="slideshow">
+      <figure id="slideshow-container"></figure>
+    </div>
+
+    <div class="text">
+      <span class="text--main" id="quote-main">Quote Loading...</span>
+      <span class="text--sub" id="quote-sub"></span>
+    </div>
+
+    <footer>
+      © 2025 TodoEveryday.click All rights reserved.
+    </footer>
+
+    <!-- Desktop ads below footer -->
+    <div id="bottom-ad-row" class="mobileHide">
+      <script type="text/javascript">
         atOptions = {
           'key': '1b104b58bb7ca585ccb40',
           'format': 'iframe',
@@ -339,36 +280,80 @@
           'params': {}
         };
       </script>
-      <script src="//www.highperformanceformat.com/1b104b58bb7ca585ccb40/invoke.js"></script>
+      <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585ccb40/invoke.js"></script>
+
+      <script type="text/javascript">
+        atOptions = {
+          'key': 'ee045765b78ee840108a8f527e35cd85',
+          'format': 'iframe',
+          'height': 60,
+          'width': 468,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
+
+      <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
+      <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
+      <script async data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+      <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+
+      <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95a3013" style="border:none; width:160px; height:600px;" scrolling="no" title="Ad 7 iframe"></iframe>
     </div>
-  </div>
 
-  <!-- Desktop Bottom Banner -->
-  <div id="bottom-ad-container" class="mobileHide" style="margin: 20px auto; text-align: center;">
-    <script type="text/javascript">
-      atOptions = {
-        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
-        'format': 'iframe',
-        'height': 90,
-        'width': 728,
-        'params': {}
-      };
-    </script>
-    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
-  </div>
+    <!-- Mobile ads below footer -->
+    <div id="bottom-ad-row-mobile" class="mobileShow"
+      style="background: rgba(20, 20, 20, 0.85); display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px; margin: 10px auto; width: 320px;">
+      <script type="text/javascript">
+        atOptions = {
+          'key': '1b104b58bb7ca585ccb40',
+          'format': 'iframe',
+          'height': 50,
+          'width': 320,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585ccb40/invoke.js"></script>
 
-  <!-- Mobile Bottom Banner -->
-  <div id="bottom-ad-container-mobile" class="mobileShow" style="margin: 10px auto; text-align: center;">
-    <script type="text/javascript">
-      atOptions = {
-        'key': 'cb53e8ce5c40d13d1598b9aeba34b4d9',
-        'format': 'iframe',
-        'height': 50,
-        'width': 320,
-        'params': {}
-      };
-    </script>
-    <script type="text/javascript" src="//fluffyaltarrecords.com/cb53e8ce5c40d13d1598b9aeba34b4d9/invoke.js"></script>
+      <script type="text/javascript">
+        atOptions = {
+          'key': 'ee045765b78ee840108a8f527e35cd85',
+          'format': 'iframe',
+          'height': 60,
+          'width': 320,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
+
+      <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
+      <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
+      <script async data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+      <div id="container-c76ba32263dd5327ba120e38be87286b-mobile"></div>
+
+      <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95a3013" style="border:none; width:320px; height:50px;" scrolling="no" title="Ad 7 iframe"></iframe>
+    </div>
+
+    <!-- Left and Right Desktop Ads BELOW existing bottom ads -->
+    <div class="left-right-ad-row mobileHide">
+      <div id="left-ad-container">
+        <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+        <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+      </div>
+
+      <div id="right-ad-container">
+        <script>
+          atOptions = {
+            'key': '1b104b58bb7ca585ccb40',
+            'format': 'iframe',
+            'height': 600,
+            'width': 160,
+            'params': {}
+          };
+        </script>
+        <script src="//www.highperformanceformat.com/1b104b58bb7ca585ccb40/invoke.js"></script>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -423,4 +408,5 @@
   </script>
 
 </body>
+
 </html>
