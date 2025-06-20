@@ -195,11 +195,11 @@
       /* ROTATE entire page 90deg on mobile portrait */
       #rotated-container {
         position: fixed;
-        top: 100%;
+        top: 0;
         left: 0;
         width: 100vh;
         height: 100vw;
-        transform: rotate(90deg);
+        transform: rotate(90deg) translate(0, -100%);
         transform-origin: top left;
         overflow-x: hidden;
         background-color: #222;
