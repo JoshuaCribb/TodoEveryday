@@ -101,8 +101,30 @@
       text-align: center;
     }
 
-    /* Desktop ads row below footer */
-    .ad-banner-row {
+    /* Existing bottom ads row */
+    #bottom-ad-row {
+      background: rgba(20, 20, 20, 0.85);
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 10px 0;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+    }
+
+    #bottom-ad-row-mobile {
+      background: rgba(20, 20, 20, 0.85);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      margin: 10px auto;
+      width: 320px;
+    }
+
+    /* New ad row for left & right desktop ads below existing ads */
+    .left-right-ad-row {
       display: flex;
       justify-content: center;
       gap: 40px;
@@ -149,6 +171,11 @@
         height: 50px !important;
         display: block;
         text-align: center;
+      }
+
+      /* Hide the new left-right desktop ads on mobile */
+      .left-right-ad-row {
+        display: none !important;
       }
     }
 
@@ -248,15 +275,84 @@
     © 2025 TodoEveryday.click All rights reserved.
   </footer>
 
-  <!-- Desktop Left & Right Ads BELOW FOOTER -->
-  <div class="ad-banner-row mobileHide">
-    <!-- Left Ad -->
+  <!-- Existing translucent ad container below footer desktop -->
+  <div id="bottom-ad-row" class="mobileHide">
+    <script type="text/javascript">
+      atOptions = {
+        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format': 'iframe',
+        'height': 600,
+        'width': 160,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'ee045765b78ee840108a8f527e35cd85',
+        'format': 'iframe',
+        'height': 60,
+        'width': 468,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
+
+    <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
+    <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
+    <script async data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+    <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+
+    <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013"
+      style="border:none; width:160px; height:600px;"
+      scrolling="no"
+      title="Ad 7 iframe"></iframe>
+  </div>
+
+  <!-- Existing translucent ad container below footer mobile -->
+  <div id="bottom-ad-row-mobile" class="mobileShow"
+    style="background: rgba(20, 20, 20, 0.85); display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px; margin: 10px auto; width: 320px;">
+    <script type="text/javascript">
+      atOptions = {
+        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'format': 'iframe',
+        'height': 50,
+        'width': 320,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'ee045765b78ee840108a8f527e35cd85',
+        'format': 'iframe',
+        'height': 60,
+        'width': 320,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
+
+    <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
+    <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
+    <script async data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+    <div id="container-c76ba32263dd5327ba120e38be87286b-mobile"></div>
+
+    <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95d9a175a3013"
+      style="border:none; width:320px; height:50px;"
+      scrolling="no"
+      title="Ad 7 iframe"></iframe>
+  </div>
+
+  <!-- NEW: Left and Right Desktop Ads BELOW existing bottom ads -->
+  <div class="left-right-ad-row mobileHide">
     <div id="left-ad-container">
       <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
       <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
     </div>
 
-    <!-- Right Ad -->
     <div id="right-ad-container">
       <script>
         atOptions = {
@@ -278,19 +374,6 @@
         main: "A No is Always a step closer to a Yes,",
         sub: "Become the Opposite of Discouraged."
       },
-      {
-        main: "quote top",
-        sub: "quote bottom"
-      },
-       {
-        main: "quote top",
-        sub: "quote bottom"
-      },
-      {
-        main: "quote top",
-        sub: "quote bottom"
-      },
-     
      
     ];
 
