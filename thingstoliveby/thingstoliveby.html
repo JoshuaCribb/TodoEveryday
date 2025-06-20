@@ -354,12 +354,322 @@
   </div>
 
   <script>
-    const quotes = [
-      {
-        main: "A No is Always a step closer to a Yes,",
-        sub: "Become the Opposite of Discouraged."
-      }
-    ];
+   const quotes = [
+  {
+    main: "A No is Always a step closer to a Yes,",
+    sub: "Become the Opposite of Discouraged."
+  },
+  {
+    main: "It’s boring—until it’s legendary.",
+    sub: "Do the same thing until the game pays you."
+  },
+  {
+    main: "Mastery is repetition.",
+    sub: "You don’t need motivation. You need rhythm."
+  },
+  {
+    main: "Stay low, build slow.",
+    sub: "Let the results talk loud."
+  },
+  {
+    main: "They flex, you invest.",
+    sub: "Stay broke on purpose."
+  },
+  {
+    main: "Compound interest, compound habits.",
+    sub: "Let time and silence do the talking."
+  },
+  {
+    main: "Same thing, every day.",
+    sub: "The greats don’t get bored — they get better."
+  },
+  {
+    main: "You water it daily, it grows silently.",
+    sub: "Compound effort is undefeated."
+  },
+  {
+    main: "Stay down until it's permanent.",
+    sub: "Temporary discipline builds permanent success."
+  },
+  {
+    main: "Suffer now and live the rest of your life as a champion.",
+    sub: "– Muhammad Ali"
+  },
+  {
+    main: "Stack. Save. Compound.",
+    sub: "Let the work speak in decades."
+  },
+  {
+    main: "Delay the lifestyle.",
+    sub: "Stack like you're broke."
+  },
+  {
+    main: "Save. Stack. Stay low.",
+    sub: "Compound silence into power."
+  },
+  {
+    main: "Get uncomfortable on purpose.",
+    sub: "That’s where the future starts."
+  },
+  {
+    main: "Your circle is your ceiling.",
+    sub: "Surround yourself like you want to grow."
+  },
+  {
+    main: "You don’t rise to your goals,",
+    sub: "You fall to your systems."
+  },
+  {
+    main: "Growth requires ego death.",
+    sub: "Trade being right for getting better."
+  },
+  {
+    main: "Run toward the resistance.",
+    sub: "That’s where the growth lives."
+  },
+  {
+    main: "Be around people who stretch you, not just support you.",
+    sub: "Comfort zones kill potential."
+  },
+  {
+    main: "Shift the mindset, shift the outcome.",
+    sub: "New thoughts create new realities."
+  },
+  {
+    main: "The new version of you requires different thoughts, not just better habits.",
+    sub: "Upgrade your mind first."
+  },
+  {
+    main: "Sell with your presence, not just your words.",
+    sub: "Confidence is your loudest pitch."
+  },
+  {
+    main: "Body language speaks before you do.",
+    sub: "Walk like you own every room you enter."
+  },
+  {
+    main: "Don’t move like Goofy, move like a ghost.",
+    sub: "Silent, smooth, untouchable."
+  },
+  {
+    main: "The best sales are made without trying too hard.",
+    sub: "Confidence closes deals faster than words."
+  },
+  // Debt / ownership / future focus quotes
+  {
+    main: "Debt is a leash, not a tool.",
+    sub: "Own your money or it owns you."
+  },
+  {
+    main: "True freedom is debt free.",
+    sub: "Control your cash, control your life."
+  },
+  {
+    main: "Monetize your time, don’t rent it.",
+    sub: "Ownership beats salary every time."
+  },
+  {
+    main: "Build assets, not liabilities.",
+    sub: "The future rewards those who own."
+  },
+  {
+    main: "Focus on cash flow, not just income.",
+    sub: "Make money work while you sleep."
+  },
+  {
+    main: "The rich buy freedom, not things.",
+    sub: "Invest in what builds tomorrow."
+  },
+  {
+    main: "Pay debt aggressively, then leverage smartly.",
+    sub: "Debt is a tool, only if controlled."
+  },
+  {
+    main: "Ownership is the ultimate power move.",
+    sub: "Be the boss of your finances."
+  },
+  {
+    main: "Your mindset is your money blueprint.",
+    sub: "Shift it, and your wallet will follow."
+  },
+  {
+    main: "Every dollar you save is a soldier for your future.",
+    sub: "Deploy capital wisely."
+  },
+  {
+    main: "Monetization starts with mastery.",
+    sub: "Know your craft, then cash it."
+  },
+  {
+    main: "Focus on creating, not consuming.",
+    sub: "Assets over expenses every time."
+  },
+  {
+    main: "Long term wealth means saying no today.",
+    sub: "Discipline is your best investment."
+  },
+  {
+    main: "The future belongs to owners, not renters.",
+    sub: "Build your empire brick by brick."
+  },
+  {
+    main: "Debt-free is the new rich.",
+    sub: "Financial peace trumps flashing cash."
+  },
+  // 38 new mindset, sales, growth, confidence quotes
+  {
+    main: "Comfort zones are silent killers.",
+    sub: "Step out, level up, repeat."
+  },
+  {
+    main: "Move in silence, let success shout.",
+    sub: "Boss moves don’t need applause."
+  },
+  {
+    main: "Think future, not instant.",
+    sub: "Opportunities compound like interest."
+  },
+  {
+    main: "The lifestyle you want starts with the mindset you build.",
+    sub: "Dream bigger, act smaller, grind hardest."
+  },
+  {
+    main: "Your family’s freedom is your real motivation.",
+    sub: "Build wealth to build legacies."
+  },
+  {
+    main: "Debt chains the body, ownership frees the mind.",
+    sub: "Cut the leash and run."
+  },
+  {
+    main: "Quiet confidence opens doors.",
+    sub: "Flex for yourself, not for them."
+  },
+  {
+    main: "Hustle in private, celebrate in public.",
+    sub: "The real work is never a show."
+  },
+  {
+    main: "Every sale is a step closer to freedom.",
+    sub: "Focus on closing, not applause."
+  },
+  {
+    main: "Comfort is the enemy of progress.",
+    sub: "Growth lives just outside your fear."
+  },
+  {
+    main: "Your network is your net worth.",
+    sub: "Choose who stretches you, not who flatters you."
+  },
+  {
+    main: "Monetize your mastery.",
+    sub: "Skill pays dividends forever."
+  },
+  {
+    main: "Think bigger than money.",
+    sub: "Think about freedom, time, legacy."
+  },
+  {
+    main: "You don’t need permission to succeed.",
+    sub: "Own your grind, own your future."
+  },
+  {
+    main: "Build silently, then shock loudly.",
+    sub: "Let the results do the flexing."
+  },
+  {
+    main: "The best hustle feels like work only you can do.",
+    sub: "Master your craft, then monetize it."
+  },
+  {
+    main: "Debt is a thief stealing your future.",
+    sub: "Pay it off before it pays you."
+  },
+  {
+    main: "The future belongs to the prepared.",
+    sub: "Prepare daily, profit quietly."
+  },
+  {
+    main: "Work like no one’s watching.",
+    sub: "Win like everyone is."
+  },
+  {
+    main: "A sale isn’t luck; it’s preparation meeting opportunity.",
+    sub: "Sharpen your skills and wait."
+  },
+  {
+    main: "Wealth is the ability to fully experience life.",
+    sub: "Debt limits your experience."
+  },
+  {
+    main: "Move like a boss, speak like a leader.",
+    sub: "Confidence is silent power."
+  },
+  {
+    main: "Your grind sets the table for generations.",
+    sub: "Build for the future, not the now."
+  },
+  {
+    main: "Master your money mindset.",
+    sub: "Your wallet follows your beliefs."
+  },
+  {
+    main: "Silent moves keep you untouchable.",
+    sub: "Noise attracts enemies."
+  },
+  {
+    main: "Sales are conversations, not pitches.",
+    sub: "Build trust, then collect."
+  },
+  {
+    main: "Build wealth to buy freedom, not things.",
+    sub: "Experience over expenses."
+  },
+  {
+    main: "The best investment is in your skill and time.",
+    sub: "They compound longer than stocks."
+  },
+  {
+    main: "Don’t chase clout, chase cash flow.",
+    sub: "Loud wins fade fast."
+  },
+  {
+    main: "Comfort is a lie your mind tells you.",
+    sub: "Growth starts where comfort ends."
+  },
+  {
+    main: "Think in decades, not days.",
+    sub: "Patience turns pennies into millions."
+  },
+  {
+    main: "You are the CEO of your life.",
+    sub: "Make executive decisions daily."
+  },
+  {
+    main: "Master the art of quiet confidence.",
+    sub: "True power doesn’t need an audience."
+  },
+  {
+    main: "Financial freedom means choice.",
+    sub: "Choice means peace."
+  },
+  {
+    main: "Every dollar saved is a soldier in your army.",
+    sub: "Deploy capital like a general."
+  },
+  {
+    main: "Your family’s future depends on your discipline today.",
+    sub: "Grind for generations, not just moments."
+  },
+  {
+    main: "Opportunities don’t wait for the comfortable.",
+    sub: "Hustle beyond the fear."
+  }
+];
+
+
+
+      
 
     const quoteMain = document.getElementById("quote-main");
     const quoteSub = document.getElementById("quote-sub");
@@ -381,8 +691,23 @@
       "./img/pic18.jpg",
       "./img/pic17.jpg",
       "./img/pic19.jpg",
+      "./img/pic18.jpg",
+      "./img/pic17.jpg",
+      "./img/pic19.jpg",
+      "./img/pic18.jpg",
+      "./img/pic17.jpg",
+      "./img/pic19.jpg",
+      "./img/pic18.jpg",
+      "./img/pic17.jpg",
+      "./img/pic19.jpg",
+      "./img/pic18.jpg",
+      "./img/pic17.jpg",
+      "./img/pic19.jpg",
+      "./img/pic18.jpg",
+      "./img/pic17.jpg",
+      "./img/pic19.jpg",
       "./img/house 8.jpg"
-    ];
+    ];   
 
     function shuffle(array) {
       for (let i = array.length - 1; i > 0; i--) {
