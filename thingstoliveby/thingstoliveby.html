@@ -201,9 +201,21 @@
         height: 100vw;
         transform: rotate(90deg) translate(0, -100%);
         transform-origin: top left;
-        overflow-x: hidden;
+        overflow-x: auto;
         background-color: #222;
         z-index: 9999;
+      }
+
+      /* Remove fixed height for slideshow container */
+      .slideshow figure {
+        height: auto !important;
+      }
+
+      /* Make images scale responsively */
+      .slideshow figure img {
+        height: auto !important;
+        width: 100% !important;
+        object-fit: contain !important;
       }
     }
 
@@ -298,7 +310,8 @@
       <script async data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
       <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
 
-      <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95a3013" style="border:none; width:160px; height:600px;" scrolling="no" title="Ad 7 iframe"></iframe>
+      <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95a3013" style="border:none; width:160px; height:600px;" scrolling="no"
+        title="Ad 7 iframe"></iframe>
     </div>
 
     <!-- Mobile ads below footer -->
@@ -331,7 +344,8 @@
       <script async data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
       <div id="container-c76ba32263dd5327ba120e38be87286b-mobile"></div>
 
-      <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95a3013" style="border:none; width:320px; height:50px;" scrolling="no" title="Ad 7 iframe"></iframe>
+      <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95a3013" style="border:none; width:320px; height:50px;" scrolling="no"
+        title="Ad 7 iframe"></iframe>
     </div>
 
     <!-- Left and Right Desktop Ads BELOW existing bottom ads -->
