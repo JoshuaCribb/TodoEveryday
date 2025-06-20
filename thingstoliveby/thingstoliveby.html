@@ -179,6 +179,18 @@
       .text--sub {
         font-size: 18px !important;
       }
+
+      /* ROTATE entire page 90deg on mobile portrait */
+      body {
+        transform: rotate(90deg);
+        transform-origin: left top;
+        width: 100vh;
+        height: 100vw;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
     }
 
     footer {
@@ -248,7 +260,7 @@
   <div id="bottom-ad-row" class="mobileHide">
     <script type="text/javascript">
       atOptions = {
-        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'key': '1b104b58bb7ca585ccb40',
         'format': 'iframe',
         'height': 600,
         'width': 160,
@@ -417,4 +429,3 @@
 
 </body>
 </html>
-
