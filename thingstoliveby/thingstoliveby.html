@@ -39,7 +39,8 @@
       text-align: center;
     }
 
-    .slideshow figure {
+    /* Now each image inside its own figure */
+    #slideshow-container figure {
       margin: 0;
       padding: 0;
       overflow: hidden;
@@ -48,7 +49,7 @@
       width: 100%;
     }
 
-    .slideshow figure img {
+    #slideshow-container figure img {
       width: 100%;
       height: 820px;
       object-fit: cover;
@@ -207,12 +208,12 @@
       }
 
       /* Remove fixed height for slideshow container */
-      .slideshow figure {
+      #slideshow-container figure {
         height: auto !important;
       }
 
       /* Make images scale responsively */
-      .slideshow figure img {
+      #slideshow-container figure img {
         height: auto !important;
         width: 100% !important;
         object-fit: contain !important;
@@ -394,7 +395,7 @@
       location.reload();
     });
 
-    // Randomize slideshow images
+    // Randomize slideshow images and put each in a figure
     const imagePaths = [
       "./img/pic18.jpg",
       "./img/pic17.jpg",
@@ -413,11 +414,16 @@
     const shuffledImages = shuffle([...imagePaths]);
     const slideshowContainer = document.getElementById("slideshow-container");
 
+    // Clear container before appending
+    slideshowContainer.innerHTML = '';
+
     shuffledImages.forEach(path => {
+      const figure = document.createElement("figure");
       const img = document.createElement("img");
       img.src = path;
       img.alt = "Slideshow Image";
-      slideshowContainer.appendChild(img);
+      figure.appendChild(img);
+      slideshowContainer.appendChild(figure);
     });
   </script>
 
