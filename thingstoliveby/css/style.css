@@ -111,18 +111,21 @@ html {
   visibility: visible;
   opacity: 1;
 }
+
+
 .text--main {
   display: block;
-  line-height: 3.5rem;
+  margin-bottom: 1rem;
   animation-name: moveInLeft;
   animation-duration: 1s;
   animation-timing-function: ease-out;
-  visibility: visible;
 }
+
 .text--sub {
-  animation: moveInRight 1s ease-out;
   display: block;
-  visibility: visible;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 
 /* Composition styles */
@@ -527,12 +530,15 @@ header {
   }
 }
 .text {
+  position: static;
   max-width: 90vw;
-  margin: 12px auto 40px auto; /* center horizontally */
+  margin: 2rem auto 4rem auto; /* center horizontally & with spacing */
   color: #fff;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 2.5rem;
   text-shadow: 1px 1px 5px #000;
   user-select: none;
-  text-align: center; /* center text inside the box */
-  font-weight: 600;
-  font-family: Arial, sans-serif;
+  text-align: center;
 }
