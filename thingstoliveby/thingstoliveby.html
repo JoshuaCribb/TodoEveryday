@@ -22,7 +22,7 @@
 
     .slideshow {
       width: 100%;
-      max-width: 2048px; /* matches viewport width */
+      max-width: 2048px;
       margin: 0 auto;
       text-align: center;
     }
@@ -32,21 +32,21 @@
       padding: 0;
       overflow: hidden;
       position: relative;
-      height: 820px; /* fixed slideshow height */
+      height: 820px;
       width: 100%;
     }
 
     .slideshow figure img {
       width: 100%;
       height: 820px;
-      object-fit: cover; /* fills container and crops if needed */
+      object-fit: cover;
       display: block;
       user-select: none;
     }
 
     .text {
       max-width: 90vw;
-      margin: 8px 0 40px 30px; /* margin-top: 8px below slideshow, left 30px to shift right */
+      margin: 8px 0 40px 30px;
       color: #fff;
       text-shadow: 1px 1px 5px #000;
       user-select: none;
@@ -67,7 +67,31 @@
       margin-top: 6px;
     }
 
-    /* Ads containers & footer styles here... (unchanged from previous) */
+    /* Navigation button styling */
+    .navigation {
+      margin-top: 10px;
+      margin-left: 30px;
+    }
+
+    .nav-button {
+      background-color: #444;
+      border: 2px solid #fff;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 22px;
+      padding: 8px 20px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+    }
+
+    .nav-button:hover {
+      background-color: #666;
+      color: #eee;
+    }
+
+    /* Ads containers & footer styles */
 
     #left-ad-container,
     #right-ad-container,
@@ -161,9 +185,7 @@
       </div>
       <div class="heading-secondary">Things To Live By</div>
       <div class="navigation">
-        <div></div>
-        <div></div>
-        <div></div>
+        <button aria-label="Toggle Navigation" class="nav-button">☰ Menu</button>
       </div>
     </div>
   </header>
@@ -218,8 +240,8 @@
   </div>
 
   <div class="text">
-    <span class="text--main">Listen to your dreams...</span>
-    <span class="text--sub">and we'll listen to you.</span>
+    <span class="text--main" id="quote-main">Listen to your dreams...</span>
+    <span class="text--sub" id="quote-sub">and we'll listen to you.</span>
   </div>
 
   <!-- Desktop Bottom Banner -->
@@ -291,7 +313,8 @@
   </div>
 
   <!-- Translucent ad container below footer mobile -->
-  <div id="bottom-ad-row-mobile" class="mobileShow" style="background: rgba(20, 20, 20, 0.85); display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px; margin: 10px auto; width: 320px;">
+  <div id="bottom-ad-row-mobile" class="mobileShow"
+    style="background: rgba(20, 20, 20, 0.85); display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px; margin: 10px auto; width: 320px;">
     <script type="text/javascript">
       atOptions = {
         'key': '1b104b58bb7ca585cc9a9995c94ecb40',
@@ -324,6 +347,47 @@
       scrolling="no"
       title="Ad 7 iframe"></iframe>
   </div>
+
+  <script>
+    // Quotes array for the quote text below slideshow
+    const quotes = [
+      {
+        main: "Listen to your dreams...",
+        sub: "and we'll listen to you."
+      },
+      {
+        main: "Courage is grace under pressure.",
+        sub: "— Ernest Hemingway"
+      },
+      {
+        main: "Do what you love, love what you do.",
+        sub: "— Ray Bradbury"
+      },
+      {
+        main: "Dream big. Dare bigger.",
+        sub: "— Unknown"
+      }
+    ];
+
+    const quoteMain = document.getElementById("quote-main");
+    const quoteSub = document.getElementById("quote-sub");
+
+    // On page load, randomly show one quote
+    function showRandomQuote() {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteMain.textContent = randomQuote.main;
+      quoteSub.textContent = randomQuote.sub;
+    }
+
+    showRandomQuote();
+
+    // Navigation button click reloads page with a random quote shown on reload
+    const navButton = document.querySelector(".nav-button");
+    navButton.addEventListener("click", () => {
+      // Reload the page on button click to reload ads, quote changes on reload
+      location.reload();
+    });
+  </script>
 
 </body>
 
