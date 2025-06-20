@@ -39,7 +39,7 @@
       text-align: center;
     }
 
-    /* Each image inside its own figure */
+    /* Now each image inside its own figure */
     #slideshow-container figure {
       margin: 0;
       padding: 0;
@@ -270,8 +270,7 @@
     </div>
 
     <div class="slideshow">
-      <!-- IMPORTANT: slideshow container is now a div -->
-      <div id="slideshow-container"></div>
+      <figure id="slideshow-container"></figure>
     </div>
 
     <div class="text">
@@ -318,4 +317,116 @@
 
     <!-- Mobile ads below footer -->
     <div id="bottom-ad-row-mobile" class="mobileShow"
-      style="background: rgba(20, 20, 20, 0.85); display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px; margin: 10px a
+      style="background: rgba(20, 20, 20, 0.85); display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px; margin: 10px auto; width: 320px;">
+      <script type="text/javascript">
+        atOptions = {
+          'key': '1b104b58bb7ca585ccb40',
+          'format': 'iframe',
+          'height': 50,
+          'width': 320,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="//fluffyaltarrecords.com/1b104b58bb7ca585ccb40/invoke.js"></script>
+
+      <script type="text/javascript">
+        atOptions = {
+          'key': 'ee045765b78ee840108a8f527e35cd85',
+          'format': 'iframe',
+          'height': 60,
+          'width': 320,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="//fluffyaltarrecords.com/ee045765b78ee840108a8f527e35cd85/invoke.js"></script>
+
+      <script type='text/javascript' src='//fluffyaltarrecords.com/1e/cc/ac/1eccac26e96014f193765863d0af42e4.js'></script>
+      <script type='text/javascript' src='//fluffyaltarrecords.com/16/8a/e7/168ae760439ddb7344d5f4a9148fe0b7.js'></script>
+      <script async data-cfasync="false" src="//fluffyaltarrecords.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+      <div id="container-c76ba32263dd5327ba120e38be87286b-mobile"></div>
+
+      <iframe src="https://fluffyaltarrecords.com/jbe5rh84?key=9f01175f78a46d344fb95a3013" style="border:none; width:320px; height:50px;" scrolling="no"
+        title="Ad 7 iframe"></iframe>
+    </div>
+
+    <!-- Left and Right Desktop Ads BELOW existing bottom ads -->
+    <div class="left-right-ad-row mobileHide">
+      <div id="left-ad-container">
+        <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
+        <div id="container-c76ba32263dd5327ba120e38be87286b"></div>
+      </div>
+
+      <div id="right-ad-container">
+        <script>
+          atOptions = {
+            'key': '1b104b58bb7ca585ccb40',
+            'format': 'iframe',
+            'height': 600,
+            'width': 160,
+            'params': {}
+          };
+        </script>
+        <script src="//www.highperformanceformat.com/1b104b58bb7ca585ccb40/invoke.js"></script>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const quotes = [
+      {
+        main: "A No is Always a step closer to a Yes,",
+        sub: "Become the Opposite of Discouraged."
+      }
+      // add more quotes here if you want
+    ];
+
+    const quoteMain = document.getElementById("quote-main");
+    const quoteSub = document.getElementById("quote-sub");
+
+    function showRandomQuote() {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteMain.textContent = randomQuote.main;
+      quoteSub.textContent = randomQuote.sub;
+    }
+
+    showRandomQuote();
+
+    document.querySelector(".nav-button").addEventListener("click", () => {
+      location.reload();
+    });
+
+    // Randomize slideshow images and put each in a figure
+    const imagePaths = [
+      "./img/pic18.jpg",
+      "./img/pic17.jpg",
+      "./img/pic19.jpg",
+      "./img/house 8.jpg"
+    ];
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    const shuffledImages = shuffle([...imagePaths]);
+    const slideshowContainer = document.getElementById("slideshow-container");
+
+    // Clear container before appending
+    slideshowContainer.innerHTML = '';
+
+    shuffledImages.forEach(path => {
+      const figure = document.createElement("figure");
+      const img = document.createElement("img");
+      img.src = path;
+      img.alt = "Slideshow Image";
+      figure.appendChild(img);
+      slideshowContainer.appendChild(figure);
+    });
+  </script>
+
+</body>
+
+</html>
