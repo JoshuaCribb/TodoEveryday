@@ -123,9 +123,9 @@ html {
 
 .btn-text:hover {
   background: transparent;
-  color: #3A5199
+  color: #3A5199;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
+  transform: translate(-2px);
   border: 1px solid #24264c;
   font-weight: bolder; }
 
