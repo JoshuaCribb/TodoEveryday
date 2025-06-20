@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=2048" />
+  <meta name="viewport" content="width=2048, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Things To Live By</title>
 
@@ -148,24 +148,19 @@
 
       #bottom-ad-container,
       #bottom-ad-row,
-      #single-bottom-banner {
+      .left-right-ad-row {
         display: none !important;
       }
 
       #left-ad-container-mobile,
       #right-ad-container-mobile,
       #bottom-ad-container-mobile,
-      #bottom-ad-row-mobile,
-      #single-bottom-banner-mobile {
+      #bottom-ad-row-mobile {
         margin: 10px auto;
         width: 320px !important;
         height: 50px !important;
         display: block;
         text-align: center;
-      }
-
-      .left-right-ad-row {
-        display: none !important;
       }
 
       /* Fix quote text on mobile */
@@ -232,14 +227,14 @@
   <div id="right-ad-container-mobile" class="mobileShow">
     <script>
       atOptions = {
-        'key': '1b104b58bb7ca585cc9a9995c94ecb40',
+        'key': '1b104b58bb7ca585ccb40',
         'format': 'iframe',
         'height': 50,
         'width': 320,
         'params': {}
       };
     </script>
-    <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
+    <script src="//www.highperformanceformat.com/1b104b58bb7ca585ccb40/invoke.js"></script>
   </div>
 
   <div class="slideshow">
@@ -256,7 +251,7 @@
     © 2025 TodoEveryday.click All rights reserved.
   </footer>
 
-  <!-- Existing translucent ad container below footer desktop -->
+  <!-- Desktop ads below footer -->
   <div id="bottom-ad-row" class="mobileHide">
     <script type="text/javascript">
       atOptions = {
@@ -291,7 +286,7 @@
       title="Ad 7 iframe"></iframe>
   </div>
 
-  <!-- Existing translucent ad container below footer mobile -->
+  <!-- Mobile ads below footer -->
   <div id="bottom-ad-row-mobile" class="mobileShow"
     style="background: rgba(20, 20, 20, 0.85); display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px; margin: 10px auto; width: 320px;">
     <script type="text/javascript">
@@ -327,7 +322,7 @@
       title="Ad 7 iframe"></iframe>
   </div>
 
-  <!-- NEW: Left and Right Desktop Ads BELOW existing bottom ads -->
+  <!-- Left and Right Desktop Ads BELOW existing bottom ads -->
   <div class="left-right-ad-row mobileHide">
     <div id="left-ad-container">
       <script async src="//pl26942262.profitableratecpm.com/c76ba32263dd5327ba120e38be87286b/invoke.js"></script>
@@ -348,7 +343,6 @@
     </div>
   </div>
 
-  <!-- *** NEW PLACEMENT: Desktop and Mobile Bottom Banner appended LAST *** -->
   <!-- Desktop Bottom Banner -->
   <div id="bottom-ad-container" class="mobileHide" style="margin: 20px auto; text-align: center;">
     <script type="text/javascript">
@@ -383,6 +377,7 @@
         main: "A No is Always a step closer to a Yes,",
         sub: "Become the Opposite of Discouraged."
       }
+      // add more quotes here if you want
     ];
 
     const quoteMain = document.getElementById("quote-main");
