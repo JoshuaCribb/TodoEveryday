@@ -526,3 +526,13 @@ header {
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
   }
 }
+.text {
+  max-width: 90vw;
+  margin: 12px auto 40px auto; /* center horizontally */
+  color: #fff;
+  text-shadow: 1px 1px 5px #000;
+  user-select: none;
+  text-align: center; /* center text inside the box */
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+}
