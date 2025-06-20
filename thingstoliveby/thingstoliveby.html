@@ -17,14 +17,12 @@
       color: #fff;
       font-family: Arial, sans-serif;
     }
-
     .slideshow {
       width: 100%;
       max-width: 2048px;
       margin: 0 auto;
       text-align: center;
     }
-
     .slideshow figure {
       margin: 0;
       padding: 0;
@@ -33,7 +31,6 @@
       height: 820px;
       width: 100%;
     }
-
     .slideshow figure img {
       width: 100%;
       height: 820px;
@@ -41,7 +38,6 @@
       display: block;
       user-select: none;
     }
-
     .text {
       max-width: 90vw;
       margin: 8px 0 40px 30px;
@@ -50,25 +46,22 @@
       user-select: none;
       text-align: left;
       font-weight: 600;
+      font-family: Arial, sans-serif;
     }
-
     .text--main {
       font-size: 40px;
       font-weight: bold;
       display: block;
     }
-
     .text--sub {
       font-size: 22px;
       display: block;
       margin-top: 6px;
     }
-
     .navigation {
       margin-top: 10px;
       margin-left: 30px;
     }
-
     .nav-button {
       background-color: #444;
       border: 2px solid #fff;
@@ -81,12 +74,20 @@
       transition: background-color 0.3s ease;
       font-weight: bold;
     }
-
     .nav-button:hover {
       background-color: #666;
       color: #eee;
     }
-
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      padding: 20px 0;
+      border-top: 1px solid #ccc;
+      background: #222;
+      position: relative;
+      z-index: 10;
+    }
     #bottom-ad-container {
       position: static;
       margin: 20px auto;
@@ -94,7 +95,6 @@
       height: 90px;
       text-align: center;
     }
-
     #bottom-ad-row {
       background: rgba(20, 20, 20, 0.85);
       display: flex;
@@ -104,7 +104,6 @@
       overflow-x: auto;
       flex-wrap: nowrap;
     }
-
     #bottom-ad-row-mobile {
       background: rgba(20, 20, 20, 0.85);
       display: flex;
@@ -115,7 +114,6 @@
       margin: 10px auto;
       width: 320px;
     }
-
     .left-right-ad-row {
       display: flex;
       justify-content: center;
@@ -123,7 +121,6 @@
       padding: 20px 0;
       background: rgba(20, 20, 20, 0.85);
     }
-
     #left-ad-container,
     #right-ad-container {
       position: static;
@@ -132,26 +129,14 @@
       width: 160px;
       height: 600px;
     }
-
-    .mobileShow {
-      display: none;
-    }
+    .mobileShow { display: none; }
 
     @media only screen and (max-width: 767px) {
-      .mobileShow {
-        display: block !important;
-      }
-
-      .mobileHide {
-        display: none !important;
-      }
-
+      .mobileShow { display: block !important; }
+      .mobileHide { display: none !important; }
       #bottom-ad-container,
       #bottom-ad-row,
-      #single-bottom-banner {
-        display: none !important;
-      }
-
+      #single-bottom-banner { display: none !important; }
       #left-ad-container-mobile,
       #right-ad-container-mobile,
       #bottom-ad-container-mobile,
@@ -163,21 +148,7 @@
         display: block;
         text-align: center;
       }
-
-      .left-right-ad-row {
-        display: none !important;
-      }
-    }
-
-    footer {
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-      padding: 20px 0;
-      border-top: 1px solid #ccc;
-      background: #222;
-      position: relative;
-      z-index: 10;
+      .left-right-ad-row { display: none !important; }
     }
   </style>
 </head>
@@ -217,9 +188,9 @@
     <script src="//www.highperformanceformat.com/1b104b58bb7ca585cc9a9995c94ecb40/invoke.js"></script>
   </div>
 
-  <!-- Slideshow container -->
+  <!-- Randomized Slideshow -->
   <div class="slideshow">
-    <figure id="slideshow-container"></figure>
+    <figure id="slideshow-figure"></figure>
   </div>
 
   <div class="text">
@@ -228,22 +199,40 @@
   </div>
 
   <!-- Footer -->
-  <footer>
-    © 2025 TodoEveryday.click All rights reserved.
-  </footer>
+  <footer>© 2025 TodoEveryday.click All rights reserved.</footer>
 
-  <!-- Ads (unchanged) -->
-  <!-- [All your existing ad blocks follow here, unchanged...] -->
+  <!-- Ads - All Original Code Below Preserved -->
+  <!-- [YOUR EXISTING AD SCRIPTS GO HERE – Already Included as-is in your source above] -->
 
-  <!-- JS for quotes + slideshow randomization -->
+  <!-- Slideshow & Quote JS -->
   <script>
+    const images = [
+      "./img/pic18.jpg",
+      "./img/pic17.jpg",
+      "./img/pic19.jpg",
+      "./img/house 8.jpg"
+    ];
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
+    const slideshowFigure = document.getElementById("slideshow-figure");
+    shuffle(images);
+    images.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "Slideshow Image";
+      slideshowFigure.appendChild(img);
+    });
+
     const quotes = [
       {
         main: "A No is Always a step closer to a Yes,",
         sub: "Become the Opposite of Discouraged."
       }
     ];
-
     const quoteMain = document.getElementById("quote-main");
     const quoteSub = document.getElementById("quote-sub");
 
@@ -257,32 +246,6 @@
 
     document.querySelector(".nav-button").addEventListener("click", () => {
       location.reload();
-    });
-
-    // Randomize slideshow images
-    const imagePaths = [
-      "./img/pic18.jpg",
-      "./img/pic17.jpg",
-      "./img/pic19.jpg",
-      "./img/house 8.jpg"
-    ];
-
-    function shuffle(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
-
-    const shuffledImages = shuffle([...imagePaths]);
-    const slideshowContainer = document.getElementById("slideshow-container");
-
-    shuffledImages.forEach(path => {
-      const img = document.createElement("img");
-      img.src = path;
-      img.alt = "Slideshow Image";
-      slideshowContainer.appendChild(img);
     });
   </script>
 
