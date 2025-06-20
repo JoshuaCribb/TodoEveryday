@@ -347,7 +347,7 @@ header {
     font-weight: 400;
     font-family: Georgia;
     text-decoration: none;
-    color: #24264c;
+    color: #eee;
     padding: 1rem; }
     .header-primary a:hover {
       background-color: #29648a;
@@ -399,7 +399,7 @@ header {
 .navigation div {
   width: 35px;
   height: 5px;
-  background-color: #eee;
+  background-color: #29648a;
   margin: 0.4rem 6rem; }
 
 .section-about {
